@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppBarTheme" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="actionDropDownStyle">@style/AppBaseToolBarMenuDropDownStyle</item>
+        <item name="actionOverflowMenuStyle">@style/AppBaseToolbarOverflowMenuStyle</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="AppBaseToolBarMenuDropDownStyle" parent="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar">
+        <item name="overlapAnchor">false</item>
+        <item name="android:actionMenuTextAppearance">@style/MenuTextStyle</item>
+        <item name="android:popupBackground">@color/blue_700</item>
+        <item name="android:dropDownHorizontalOffset">0dip</item>
+    </style>
+
+    <style name="AppBaseToolbarOverflowMenuStyle" parent="@style/Widget.AppCompat.Light.PopupMenu.Overflow">
+        <item name="overlapAnchor">false</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+    </style>
+
+    <!-- ToolBar  2017/1/20-->
+    <style name="ToolBarStyle" parent="Base.Widget.AppCompat.ActionBar">
+        <item name="android:actionBarSize">@dimen/nav_bar_height</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
+        <item name="actionMenuTextAppearance">@style/MenuTextStyle</item>
+        <item name="actionOverflowButtonStyle">@style/ActionButton.Overflow</item>
+    </style>
+
+    <style name="MenuTextStyle">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/textsize_m</item>
+        <item name="android:listPreferredItemHeightSmall">@dimen/nav_bar_height</item>
+    </style>
+
+    <style name="ActionButton.Overflow" parent="android:style/Widget.Holo.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_more_vert_black</item>
+    </style>
+</resources>

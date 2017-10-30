@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Common -->
+    <dimen name="statusbar_height">36dp</dimen>
+    <dimen name="toolbar_height">72dp</dimen>
+    <dimen name="topbar_height">72dp</dimen>
+    <dimen name="navbar_height">108dp</dimen>
+
+    <!-- Fonts -->
+    <dimen name="font_xx_small">15sp</dimen>
+    <dimen name="font_x_small">18sp</dimen>
+    <dimen name="font_small">21sp</dimen>
+    <dimen name="font_medium">24sp</dimen>
+    <dimen name="font_large">30sp</dimen>
+    <dimen name="font_x_large">52sp</dimen>
+    <dimen name="font_xx_large">96sp</dimen>
+
+    <dimen name="font_title">68sp</dimen>
+    <dimen name="font_headline">36sp</dimen>
+
+    <!-- Layout -->
+    <dimen name="space_edge">24dp</dimen>
+    <dimen name="space_section">12dp</dimen>
+
+    <!-- Content -->
+    <dimen name="title_height">108dp</dimen>
+    <dimen name="subtitle">72dp</dimen>
+
+    <!-- List Item -->
+    <dimen name="item_height">72dp</dimen>
+    <dimen name="item_menu_height">48dp</dimen>
+
+    <!-- Icon -->
+    <dimen name="icon_small">36dp</dimen>
+    <dimen name="icon_medium">48dp</dimen>
+    <dimen name="icon_large">64dp</dimen>
+    <dimen name="icon_touch">72dp</dimen>
+    <dimen name="avatar">60dp</dimen>
+
+
+    <!-- Button -->
+    <dimen name="button_height">54dp</dimen>
+
+
+    <!-- 用于布局 -->
+    <dimen name="head_height">180dip</dimen>
+    <dimen name="common_dialog_width">420dip</dimen>
+
+
+
+    <!-- 常用 -->
+    <!--底部bar高度-->
+    <dimen name="tool_bar_height">96dp</dimen>
+    <!--导航栏-->
+    <dimen name="nav_bar_height">80dp</dimen>
+
+    <dimen name="dialog_item_hight2">200dp</dimen>
+    <dimen name="dialog_item_hight3">125dp</dimen>
+    <!--线-->
+    <dimen name="section_line">1dp</dimen>
+    <!--文字和图片的间隔-->
+    <dimen name="section_gap">8dp</dimen>
+    <dimen name="section_gap2">16dp</dimen>
+    <dimen name="section_gap3">32dp</dimen>
+    <!--统一padding-->
+    <dimen name="section_padding">20dp</dimen>
+    <dimen name="section_padding3">10sp</dimen>
+
+    <dimen name="image_s">32dp</dimen>
+    <dimen name="image_m">50dp</dimen>
+    <dimen name="image_l">60dp</dimen>
+
+    <dimen name="icon_s">36dp</dimen>
+    <dimen name="icon_m">48dp</dimen>
+
+    <!--按键高度-->
+    <dimen name="dialer_btn_height">90dp</dimen>
+    <dimen name="small_btn_height">48dp</dimen>
+    <!--统一头像，大中小-->
+    <dimen name="ava_l">120dp</dimen>
+    <dimen name="ava_m">88dp</dimen>
+
+    <!-- 列表 -->
+    <dimen name="list_oneitem_height">68dp</dimen>
+    <dimen name="list_oneavat_height">80dp</dimen>
+    <dimen name="list_tworow_height">96dp</dimen>
+    <dimen name="section_with">200dp</dimen>
+
+    <!-- text size -->
+    <dimen name="textsize_xs">19dp</dimen>
+    <dimen name="textsize_s">20dp</dimen>
+    <dimen name="textsize_m">24dp</dimen>
+    <dimen name="textsize_l">30dp</dimen>
+    <dimen name="textsize_xl">32dp</dimen>
+    <dimen name="dialer_btn_digit">35dp</dimen>
+    <dimen name="dialer_btn_alpha">16dp</dimen>
+    <dimen name="dialer_height">500dp</dimen>
+    <dimen name="dialer_button_width">150dp</dimen>
+    <dimen name="dialer_button_height">84dp</dimen>
+    <dimen name="small_window_width">120dp</dimen>
+    <dimen name="small_window_height">50dp</dimen>
+
+
+    <dimen name="list_mulrow_height">196dp</dimen>
+
+
+    <dimen name="popup_width">560dp</dimen>
+    <dimen name="btn_s_height">60dp</dimen>
+    <dimen name="btn_m_height">72dp</dimen>
+    <dimen name="btn_l_height">96dp</dimen>
+    <dimen name="ava_s">54dp</dimen>
+
+    <dimen name="icon_xs">16dp</dimen>
+
+    <dimen name="tag_width">72dp</dimen>
+    <dimen name="tag_height">36dp</dimen>
+
+
+    <dimen name="padding_16dp">24dp</dimen>
+
+    <dimen name="avatar_normal">48dp</dimen>
+
+    <dimen name="text_normal">24dp</dimen>
+
+    <dimen name="callpanel_height">100dp</dimen>
+
+    <dimen name="house_user_name_width">120dp</dimen>
+
+    <!--shape的大小-->
+    <dimen name="space_edge_shorizontal">16dp</dimen>
+    <dimen name="space_edge_svertical">6dp</dimen>
+    <dimen name="space_edge_sradius">18dp</dimen>
+
+<!--弹出的dialog宽高-->
+
+    <dimen name="dialog_width">480dp</dimen>
+    <dimen name="dialog_height">400dp</dimen>
+</resources>

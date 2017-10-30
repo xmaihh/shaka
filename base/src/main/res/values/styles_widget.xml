@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- TabLayout -->
+    <style name="WX.TextAppearance.Design.Tab" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">@dimen/font_small</item>
+    </style>
+
+
+
+</resources>

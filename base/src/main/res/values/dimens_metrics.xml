@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Common -->
+    <dimen name="statusbar_height">24dp</dimen>
+    <dimen name="toolbar_height">48dp</dimen>
+    <dimen name="topbar_height">48dp</dimen>
+    <dimen name="navbar_height">72dp</dimen>
+
+    <!-- Fonts -->
+    <dimen name="font_xx_small">10sp</dimen>
+    <dimen name="font_x_small">12sp</dimen>
+    <dimen name="font_small">14sp</dimen>
+    <dimen name="font_medium">16sp</dimen>
+    <dimen name="font_large">20sp</dimen>
+    <dimen name="font_x_large">34sp</dimen>
+    <dimen name="font_xx_large">56sp</dimen>
+
+    <dimen name="font_title">45sp</dimen>
+    <dimen name="font_headline">24sp</dimen>
+
+    <!-- Layout -->
+    <dimen name="space_edge">16dp</dimen>
+    <dimen name="space_section">8dp</dimen>
+    <dimen name="space_gap">4dp</dimen>
+
+    <!-- Content -->
+    <dimen name="title_height">72dp</dimen>
+    <dimen name="subtitle">48dp</dimen>
+
+    <!-- List Item -->
+    <dimen name="item_height">72dp</dimen>
+    <dimen name="item_menu_height">48dp</dimen>
+
+    <!-- Icon -->
+    <dimen name="icon_small">24dp</dimen>
+    <dimen name="icon_medium">32dp</dimen>
+    <dimen name="icon_large">42dp</dimen>
+    <dimen name="icon_touch">48dp</dimen>
+    <dimen name="avatar">40dp</dimen>
+    <dimen name="avatar_large">72dp</dimen>
+
+
+    <!-- Button -->
+    <dimen name="button_height">36dp</dimen>
+
+    <!-- 常用 -->
+    <dimen name="tool_bar_height">48dp</dimen>
+    <dimen name="nav_bar_height">60dp</dimen>
+    <dimen name="head_height">70dp</dimen>
+    <!--按键高度-->.
+    <dimen name="small_btn_height">42dp</dimen>
+
+    <dimen name="section_line">1dp</dimen>
+    <dimen name="section_gap">8dp</dimen>
+    <dimen name="section_gap2">10dp</dimen>
+    <dimen name="section_gap3">20dp</dimen>
+    <dimen name="section_padding">16dp</dimen>
+    <dimen name="ava_l">80dp</dimen>
+    <dimen name="ava_m">60dp</dimen>
+    <dimen name="ava_s">36dp</dimen>
+    <dimen name="section_with">100dp</dimen>
+    <dimen name="dialer_btn_height">60dp</dimen>
+    <dimen name="image_s">20dp</dimen>
+    <dimen name="image_m">32dp</dimen>
+    <dimen name="image_l">48dp</dimen>
+
+    <!-- 列表 -->
+    <dimen name="list_oneitem_height">48dp</dimen>
+    <dimen name="list_oneavat_height">56dp</dimen>
+    <dimen name="list_tworow_height">72dp</dimen>
+    <dimen name="list_mulrow_height">96dp</dimen>
+
+    <!-- text size -->
+    <dimen name="textsize_xs">12sp</dimen>
+    <dimen name="textsize_s">14sp</dimen>
+    <dimen name="textsize_m">16sp</dimen>
+    <dimen name="textsize_l">18sp</dimen>
+    <dimen name="textsize_xl">20sp</dimen>
+
+    <dimen name="textsize_roomname">24sp</dimen>
+    <dimen name="textsize_customername">18sp</dimen>
+    <dimen name="section_padding2">15sp</dimen>
+    <dimen name="section_padding3">10sp</dimen>
+    <!-- 用于布局 -->
+
+    <dimen name="toast_height">55dip</dimen>
+    <dimen name="group_list_item_icon">45dip</dimen>
+    <dimen name="user_icon">50dip</dimen>
+    <dimen name="user_icon2">40dp</dimen>
+    <dimen name="user_icon1">80dip</dimen>
+    <dimen name="group_notify_item_icon">45dip</dimen>
+    <dimen name="login_icon">80dip</dimen>
+    <dimen name="slidingmenu_offset">60dp</dimen>
+    <dimen name="shadow_width">15dp</dimen>
+
+    <dimen name="line_height">0.5dip</dimen>
+    <dimen name="space_between_content">8dip</dimen>
+    <dimen name="arrow_size_group_contact">12dp</dimen>
+    <dimen name="text_width">180dp</dimen>
+    <!-- 新ui -->
+    <!-- 字体大小 -->
+    <dimen name="text_size_title">18sp</dimen>
+    <dimen name="text_size_main">16sp</dimen>
+    <dimen name="text_size_medium">14sp</dimen>
+    <dimen name="text_size_caption">13sp</dimen>
+    <dimen name="text_size_list">16sp</dimen>
+    <dimen name="text_size_button1">14sp</dimen>
+
+    <!-- 布局 -->
+    <dimen name="dialog_item_hight">56dp</dimen>
+    <dimen name="dialog_item_hight2">85dp</dimen>
+    <dimen name="dialog_item_hight3">125dp</dimen>
+    <dimen name="user_icon_size_40dp">40dp</dimen>
+    <dimen name="list_padding_left">16dp</dimen>
+    <dimen name="list_padding_right">16dp</dimen>
+    <dimen name="list_text_padding_left2">4dp</dimen>
+    <dimen name="list_text_padding_left">8dp</dimen>
+    <dimen name="list_normal_item_width">56dp</dimen>
+    <dimen name="list_icon_item_width">56dp</dimen>
+    <dimen name="list_icon_contact_item_width">72dp</dimen>
+    <dimen name="list_item_height2">72dp</dimen>
+    <dimen name="list_icon_size">24dp</dimen>
+
+    <!-- For PhoneFragment -->
+
+    <!-- END -->
+    <dimen name="dialer_btn_digit">30sp</dimen>
+    <dimen name="dialer_btn_alpha">13sp</dimen>
+
+    <dimen name="dialer_height">300dp</dimen>
+    <dimen name="head_view_height">230dp</dimen>
+    <dimen name="contact_detail_bottom_view_height">56dp</dimen>
+    <dimen name="contact_detail_list_item_height">48dp</dimen>
+    <!-- for search -->
+    <dimen name="search_at_item_height">100dp</dimen>
+    <dimen name="search_mt_item_height">36dp</dimen>
+    <dimen name="pop_window_width">180dp</dimen>
+    <dimen name="pop_window_item_height">48dp</dimen>
+    <dimen name="common_icon_size">24dp</dimen>
+    <dimen name="common_icon_layout_size">48dp</dimen>
+    <dimen name="common_icon_layout_width">40dp</dimen>
+    <dimen name="common_toast_width">280dp</dimen>
+    <dimen name="common_toast_height">124dp</dimen>
+    <dimen name="common_dialog_width">360dip</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="room_name_height">36sp</dimen>
+    <dimen name="dialer_button_width">100dp</dimen>
+    <dimen name="dialer_button_height">56dp</dimen>
+    <dimen name="small_window_width">60dp</dimen>
+    <dimen name="small_window_height">25dp</dimen>
+
+    <dimen name="popup_width">560dp</dimen>
+    <dimen name="btn_s_height">36dp</dimen>
+    <dimen name="btn_m_height">48dp</dimen>
+    <dimen name="btn_l_height">60dp</dimen>
+
+    <dimen name="icon_m">32dp</dimen>
+    <dimen name="icon_s">24dp</dimen>
+    <dimen name="icon_xs">16dp</dimen>
+
+    <dimen name="tag_width">48dp</dimen>
+    <dimen name="tag_height">24dp</dimen>
+
+    <dimen name="padding_16dp">16dp</dimen>
+
+    <dimen name="avatar_normal">24dp</dimen>
+
+    <dimen name="text_normal">14dp</dimen>
+
+
+    <dimen name="callpanel_height">80dp</dimen>
+
+    <dimen name="house_user_name_width">@dimen/callpanel_height</dimen>
+
+    <!--shape的大小-->
+    <dimen name="space_edge_shorizontal">@dimen/space_edge</dimen>
+    <dimen name="space_edge_svertical">@dimen/space_section</dimen>
+    <dimen name="space_edge_sradius">@dimen/space_edge</dimen>
+</resources>

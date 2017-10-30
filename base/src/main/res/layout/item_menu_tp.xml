@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:padding="@dimen/section_gap2"
+    android:layout_weight="1">
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginLeft="@dimen/space_section"
+        android:layout_marginRight="@dimen/space_section"
+        android:textColor="@color/colorPrimary"
+        android:background="@drawable/bg_btn_green"
+        android:text="删除业主"/>
+</LinearLayout>

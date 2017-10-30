@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/smartbar"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/grey_500"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="415dp"
+        android:background="@color/cyan_100"/>
+    <Button
+        android:id="@+id/bottom"
+        android:text="Button"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</FrameLayout>

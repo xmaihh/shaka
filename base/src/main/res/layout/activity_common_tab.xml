@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <include layout="@layout/wx_toolbar"/>
+        <include layout="@layout/wx_container_viewpager_scroll"/>
+        <!--
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="@dimen/fab_margin_bottom"
+            android:layout_marginRight="@dimen/fab_margin_right"
+            android:src="@drawable/ic_plus"
+            app:borderWidth="0dp"
+            app:fabSize="normal" />
+        -->
+    </android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

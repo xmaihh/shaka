@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--渐变1-->
+    <item
+        android:bottom="25dp"
+        android:left="1dp"
+        android:right="1dp"
+        android:top="1dp">
+        <shape android:shape="rectangle">
+            <!--设置渐变色-->
+            <gradient
+                android:angle="90"
+                android:endColor="#CB5500"
+                android:startColor="#F88800" />
+            <!--设置角的弧度-->
+            <corners
+                android:topLeftRadius="8dp"
+                android:topRightRadius="8dp" />
+        </shape>
+    </item>
+
+    <!--渐变2-->
+    <item
+        android:bottom="1dp"
+        android:left="1dp"
+        android:right="1dp"
+        android:top="50dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:centerY="0"
+                android:endColor="#E68E15"
+                android:gradientRadius="250"
+                android:startColor="#FDD401"
+                android:type="radial" />
+            <corners
+                android:bottomLeftRadius="8dp"
+                android:bottomRightRadius="8dp" />
+        </shape>
+    </item>
+
+    <!--设置边框-->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="8dp" />
+            <stroke
+                android:width="2dp"
+                android:color="#862501" />
+        </shape>
+    </item>
+</layer-list>

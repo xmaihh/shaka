@@ -5,4 +5,16 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <!--btn-->
+    <string name="btn_insert">insert</string>
+    <string name="btn_delete">delete</string>
+    <string name="btn_update">update</string>
+    <string name="btn_select">select</string>
+
+    <!--menu-->
+    <string name="menu_upload">uploading</string>
+    <string name="menu_download">download</string>
+    <string name="menu_register">register</string>
+    <string name="menu_login">login</string>
 </resources>
