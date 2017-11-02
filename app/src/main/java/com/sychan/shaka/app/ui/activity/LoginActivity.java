@@ -1,5 +1,6 @@
 package com.sychan.shaka.app.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -7,6 +8,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.orhanobut.logger.Logger;
+import com.sychan.shaka.App;
+import com.sychan.shaka.MainActivity;
 import com.sychan.shaka.R;
 import com.sychan.shaka.project.entity.model.User;
 import com.sychan.shaka.support.widget.TogglePasswordVisibilityEditText;
@@ -38,7 +41,7 @@ public class LoginActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.tv_title, R.id.but_forgetpass_toSetCodes})
+    @OnClick({R.id.tv_title, R.id.but_forgetpass_toSetCodes, R.id.text_regist})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_title:
@@ -57,6 +60,7 @@ public class LoginActivity extends BaseActivity {
                                     .show();
                             user = User.getCurrentUser(User.class);
                             Logger.d(user.getUsername());
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         } else {
                             Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT)
                                     .show();
@@ -64,8 +68,12 @@ public class LoginActivity extends BaseActivity {
                     }
                 });
                 break;
+            case R.id.text_regist:
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                break;
             default:
                 break;
         }
     }
+
 }

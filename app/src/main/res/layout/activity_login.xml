@@ -104,4 +104,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:text="登录" />
+
+    <TextView
+        android:id="@+id/text_regist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="还没账号，注册一个？" />
 </LinearLayout>

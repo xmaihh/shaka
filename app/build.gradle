@@ -66,4 +66,6 @@ dependencies {
 
 
     compile project(':base')
+    //https://github.com/jeasonlzy/ImagePicker
+    compile 'com.lzy.widget:imagepicker:0.6.1'
 }

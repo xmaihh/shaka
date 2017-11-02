@@ -1,0 +1,64 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher"
+        android:shortcutDisabledMessage="@string/app_name"
+        android:shortcutId="1"
+        android:shortcutLongLabel="@string/app_name"
+        android:shortcutShortLabel="@string/app_name">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.sychan.shaka.MainActivity"
+            android:targetPackage="com.sychan.shaka" />
+    </shortcut>
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher"
+        android:shortcutDisabledMessage="@string/app_name"
+        android:shortcutId="2"
+        android:shortcutLongLabel="@string/app_name"
+        android:shortcutShortLabel="@string/app_name">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.sychan.shaka.MainActivity"
+            android:targetPackage="com.sychan.shaka" />
+    </shortcut>
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher"
+        android:shortcutDisabledMessage="@string/app_name"
+        android:shortcutId="3"
+        android:shortcutLongLabel="@string/app_name"
+        android:shortcutShortLabel="@string/app_name">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.sychan.shaka.MainActivity"
+            android:targetPackage="com.sychan.shaka" />
+    </shortcut>
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher"
+        android:shortcutDisabledMessage="@string/app_name"
+        android:shortcutId="4"
+        android:shortcutLongLabel="@string/app_name"
+        android:shortcutShortLabel="@string/app_name">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.sychan.shaka.MainActivity"
+            android:targetPackage="com.sychan.shaka" />
+    </shortcut>
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher"
+        android:shortcutDisabledMessage="@string/app_name"
+        android:shortcutId="5"
+        android:shortcutLongLabel="@string/app_name"
+        android:shortcutShortLabel="@string/app_name">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.sychan.shaka.MainActivity"
+            android:targetPackage="com.sychan.shaka" />
+    </shortcut>
+
+</shortcuts>

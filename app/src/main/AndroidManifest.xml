@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".app.ui.activity.LauncherActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -18,13 +18,30 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
         </activity>
 
-        <activity android:name=".app.ui.activity.LauncherActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".app.ui.activity.LoginActivity" />
         <activity android:name=".app.ui.activity.RegisterActivity" />
         <activity android:name=".app.ui.activity.RetrieveActivity" />
+        <activity
+            android:name=".app.ui.activity.NewTaskActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
+
+        <!--Autolayout start-->
+        <meta-data
+            android:name="design_width"
+            android:value="1080"></meta-data>
+        <meta-data
+            android:name="design_height"
+            android:value="1920"></meta-data>
+        <!--Autolayout end-->
     </application>
 
     <!--允许联网 -->

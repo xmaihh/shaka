@@ -2,11 +2,13 @@ package com.wx.base.app;
 
 import android.app.Activity;
 import android.support.multidex.MultiDexApplication;
+import android.util.Log;
 
 import com.facebook.stetho.Stetho;
 import com.zhy.autolayout.config.AutoLayoutConifg;
 
 import java.util.Stack;
+import java.util.logging.Logger;
 
 /**
  * Created by alex on 16-11-15.
@@ -27,7 +29,10 @@ public class BaseApplication extends MultiDexApplication {
     }
 
     public static void finishActivity() {
-        activities.pop().finish();
+        if (activities != null) {
+            Log.d("521", "finishActivity: ");
+//            activities.pop().finish();
+        }
     }
 
     public static void addActivity(Activity context) {
@@ -67,7 +72,7 @@ public class BaseApplication extends MultiDexApplication {
             return;
         }
         for (int i = activities.size() - 1; i > 0; i--) {
-            if (!activities.lastElement().getClass().getName().equals("com.sychan.shaka.ui.MainActivity")) {
+            if (!activities.lastElement().getClass().getName().equals("com.sychan.shaka.ui.RegisterActivity")) {
                 activities.pop().finish();
             } else {
                 activities.lastElement();

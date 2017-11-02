@@ -17,13 +17,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.lzy.imagepicker.ImagePicker;
+import com.lzy.imagepicker.bean.ImageItem;
+import com.lzy.imagepicker.ui.ImageGridActivity;
 import com.orhanobut.logger.Logger;
+import com.sychan.shaka.app.ui.activity.LauncherActivity;
 import com.sychan.shaka.app.ui.activity.LoginActivity;
+import com.sychan.shaka.app.ui.activity.NewTaskActivity;
 import com.sychan.shaka.app.ui.activity.RegisterActivity;
 import com.sychan.shaka.app.ui.activity.RetrieveActivity;
 import com.sychan.shaka.project.entity.model.Bean;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -52,6 +58,8 @@ public class MainActivity extends AppCompatActivity
     private ActionBarDrawerToggle toggle;
     private DrawerLayout drawer;
     private Bean bean;
+
+    private int IMAGE_PICKER = 10086;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,6 +152,8 @@ public class MainActivity extends AppCompatActivity
             if (currentUser == null) {
                 Toast.makeText(MainActivity.this, "登出成功", Toast.LENGTH_SHORT)
                         .show();
+                App.getLoginActivity();
+                startActivity(new Intent(MainActivity.this, LauncherActivity.class));
             }
             return true;
         }
@@ -183,6 +193,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
+            Intent intent = new Intent(this, ImageGridActivity.class);
+            startActivityForResult(intent, IMAGE_PICKER);
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
@@ -193,11 +205,11 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
-
+            startActivity(new Intent(this, NewTaskActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        drawer.closeDrawer(GravityCompat.END);
         return true;
     }
 
@@ -280,6 +292,20 @@ public class MainActivity extends AppCompatActivity
                 break;
             default:
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == ImagePicker.RESULT_CODE_ITEMS) {
+            if (data != null && requestCode == IMAGE_PICKER) {
+                ArrayList<ImageItem> images = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_RESULT_ITEMS);
+//                MyAdapter adapter = new MyAdapter(images);
+//                gridView.setAdapter(adapter);
+            } else {
+                Toast.makeText(this, "没有数据", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

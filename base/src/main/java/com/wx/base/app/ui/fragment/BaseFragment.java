@@ -21,6 +21,7 @@ import com.wx.base.support.android.pagestate.PageStatePresenter;
 import com.wx.base.support.widget.MenuBar;
 
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * Created by lenovo on 2016/2/26 0026.
@@ -34,8 +35,9 @@ public abstract class BaseFragment extends Fragment {
     protected Store presenter = new Store();
 
     protected boolean usePageState = false;
+    Unbinder unbinder;
 
-    public Store getStore(){
+    public Store getStore() {
         return presenter;
     }
 
@@ -59,15 +61,15 @@ public abstract class BaseFragment extends Fragment {
 
         View view = inflaterView(inflater, container, savedInstanceState);
         bindViews(view);
-        ButterKnife.bind(this, view);
+        unbinder = ButterKnife.bind(this, view);
 
-        if(usePageState) {
+        if (usePageState) {
 
             //FrameLayout frameLayout = new FrameLayout(getContext());
             //frameLayout.addView(view);
             //return frameLayout;
             return pageStatePresenter.initPageState(view);
-        }else {
+        } else {
             return view;
         }
     }
@@ -81,104 +83,113 @@ public abstract class BaseFragment extends Fragment {
         initDatas();
         renderSmartBar();
     }
-    protected View inflaterView(LayoutInflater inflater, ViewGroup container, Bundle bundle){
-        return inflater.inflate(getLayout(),container,false);
+
+    protected View inflaterView(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
+        return inflater.inflate(getLayout(), container, false);
     }
 
     protected abstract int getLayout();
-    protected void initBundle(){}
+
+    protected void initBundle() {
+    }
+
     @CallSuper
-    protected void bindViews(View view){
+    protected void bindViews(View view) {
         smartbar = (ViewGroup) view.findViewById(R.id.smartbar);
     }
 
-    protected void setup(){}
-    protected void initViews(){}
-    protected void initDatas(){}
+    protected void setup() {
+    }
+
+    protected void initViews() {
+    }
+
+    protected void initDatas() {
+    }
 
 
     //设置是否使用SmartBar，以及SmartBar的类型
     protected boolean hasSamrtBar = false;
     protected boolean useBackMenu = true;
-    protected void setHasSmartBar(boolean hasSB){
+
+    protected void setHasSmartBar(boolean hasSB) {
         this.hasSamrtBar = hasSB;
     }
 
-    protected void setHasSmartBar(boolean hasSB, boolean useBack){
+    protected void setHasSmartBar(boolean hasSB, boolean useBack) {
         this.hasSamrtBar = hasSB;
         this.useBackMenu = useBack;
     }
 
 
-    protected void renderSmartBar(){
+    protected void renderSmartBar() {
         // 使用Fragment
-        if(!hasSamrtBar){
-            if(smartbar != null) {
+        if (!hasSamrtBar) {
+            if (smartbar != null) {
                 smartbar.setVisibility(View.GONE);
             }
             return;
         }
 
-        if(smartbar != null){
+        if (smartbar != null) {
             smartbar.setVisibility(View.VISIBLE);
             setupSmartBar();
             return;
         }
 
         // 使用Activity
-        if(getActivity() instanceof BaseActivity){
-            ((BaseActivity)getActivity()).renderSmartBar();
+        if (getActivity() instanceof BaseActivity) {
+            ((BaseActivity) getActivity()).renderSmartBar();
         }
     }
 
-    protected void setupSmartBar(){
+    protected void setupSmartBar() {
         renderMenuBar();
     }
 
-    protected void renderMenuBar(){
+    protected void renderMenuBar() {
 
         //if(getMenuRes() != 0){
-            MenuBar sb = new MenuBar(getContext());
-            sb.useBack(useBackMenu);
-            sb.getStore().addReducer(new BaseReducer() {
-                @Override
-                public boolean onReduce(Action action) {
-                    ClickAction<MenuItemImpl> action1 = (ClickAction<MenuItemImpl>) action;
-                    onOptionsItemSelected(action1.getEntity());
-                    return true;
-                }
-            });
-            sb.inflateMenu(getMenuRes());
-            smartbar.addView(sb);
+        MenuBar sb = new MenuBar(getContext());
+        sb.useBack(useBackMenu);
+        sb.getStore().addReducer(new BaseReducer() {
+            @Override
+            public boolean onReduce(Action action) {
+                ClickAction<MenuItemImpl> action1 = (ClickAction<MenuItemImpl>) action;
+                onOptionsItemSelected(action1.getEntity());
+                return true;
+            }
+        });
+        sb.inflateMenu(getMenuRes());
+        smartbar.addView(sb);
         //}
     }
 
-    protected int getMenuRes(){
+    protected int getMenuRes() {
         return 0;
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, final MenuInflater inflater) {
-        if(getMenuRes() != 0) {
+        if (getMenuRes() != 0) {
             menu.clear();
             inflater.inflate(getMenuRes(), menu);
         }
     }
 
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        unbinder.unbind();
     }
 
     public boolean onBackPressed() {
         return false;
     }
 
-    protected void finish(){
-        if(getActivity() != null && !getActivity().isFinishing()){
+    protected void finish() {
+        if (getActivity() != null && !getActivity().isFinishing()) {
             getActivity().finish();
         }
     }
-
 }
