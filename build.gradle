@@ -12,6 +12,8 @@ buildscript {
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.0'
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.8.1'
         classpath "com.neenbedankt.gradle.plugins:android-apt:1.6"
+
+        classpath 'com.tencent.bugly:symtabfileuploader:latest.release'
     }
 }
 

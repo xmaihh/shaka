@@ -32,6 +32,7 @@
         <activity
             android:name=".app.ui.activity.NewTaskActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".app.ui.activity.testActivity" />
 
 
         <!--Autolayout start-->

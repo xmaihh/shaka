@@ -13,6 +13,7 @@ import com.sychan.shaka.App;
 import com.sychan.shaka.R;
 import com.sychan.shaka.project.entity.model.User;
 import com.sychan.shaka.support.utils.Code;
+import com.sychan.shaka.support.utils.ToastUtil;
 import com.sychan.shaka.support.widget.TogglePasswordVisibilityEditText;
 import com.wx.base.app.ui.activity.BaseActivity;
 
@@ -59,9 +60,9 @@ public class RetrieveActivity extends BaseActivity {
             case R.id.but_forgetpass_toSetCodes:
                 String phoneCode = etPhoneCodes.getText().toString();
                 if (phoneCode.equalsIgnoreCase(realCode)) {
-                    Toast.makeText(App.currentActivity(), phoneCode + "验证码正确", Toast.LENGTH_SHORT).show();
+                    ToastUtil.show(phoneCode + "验证码正确");
                 } else {
-                    Toast.makeText(App.currentActivity(), phoneCode + "验证码错误", Toast.LENGTH_SHORT).show();
+                    ToastUtil.show(phoneCode + "验证码错误");
                 }
                 break;
         }

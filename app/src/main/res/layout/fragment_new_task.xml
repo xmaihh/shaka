@@ -112,5 +112,11 @@
             app:layoutManager="android.support.v7.widget.GridLayoutManager"
             app:spanCount="4"
             tools:listitem="@layout/item_list_image" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="提交" />
     </LinearLayout>
 </ScrollView>

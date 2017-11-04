@@ -1,4 +1,10 @@
 apply plugin: 'com.android.application'
+apply plugin: 'bugly'
+bugly {
+    debug = true
+    appId = '803534fc5e' // 注册时分配的App ID
+    appKey = 'f96b7116-b070-4ac6-bc99-4cc5a8457d25' // 注册时分配的App Key
+}
 
 android {
     compileSdkVersion 26
@@ -29,6 +35,11 @@ android {
 
     packagingOptions {
         exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/NOTICE' // will not include NOTICE file
+        exclude 'META-INF/LICENSE' // will not include LICENSE file
+        exclude 'META-INF/DEPENDENCIES' // will not include LICENSE file
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
     }
 }
 
@@ -49,7 +60,10 @@ dependencies {
     //以下SDK开发者请根据需要自行选择
     //bmob-sdk：Bmob的android sdk包，包含了Bmob的数据存储、文件等服务，以下是最新的bmob-sdk:
     //3.5.5：请务必查看下面注释[1]
-    compile 'cn.bmob.android:bmob-sdk:3.5.5'
+    compile('cn.bmob.android:bmob-sdk:3.5.5') {
+        exclude module: 'gson'
+        exclude group: 'com.google.code.gson';
+    }
     //bmob-push：Bmob的推送包
     compile 'cn.bmob.android:bmob-push:0.8'
     //bmob-im：Bmob的即时通讯包，注意每个版本的im依赖特定版本的bmob-sdk，具体的依赖关系可查看下面注释[2]
@@ -59,13 +73,14 @@ dependencies {
     compile 'cn.bmob.android:bmob-sms:1.0.1'
     //如果你想应用能够兼容Android6.0，请添加此依赖(org.apache.http.legacy.jar)
     compile 'cn.bmob.android:http-legacy:1.0'
-    compile 'com.tencent.bugly:crashreport:latest.release'
+    //    compile 'com.tencent.bugly:crashreport:latest.release'
     //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.1.5
-    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    //    compile 'com.tencent.bugly:nativecrashreport:latest.release'
     //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
-
-
     compile project(':base')
     //https://github.com/jeasonlzy/ImagePicker
     compile 'com.lzy.widget:imagepicker:0.6.1'
+    compile files('libs/bugly_crash_2.6.6.1.jar')
+
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 }

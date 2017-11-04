@@ -24,14 +24,14 @@ public class BaseApplication extends MultiDexApplication {
         //Autolayout
         AutoLayoutConifg.getInstance().useDeviceSize();
         if (activities == null) {
-            activities = new Stack<Activity>();
+            activities = new Stack<>();
         }
     }
 
     public static void finishActivity() {
         if (activities != null) {
-            Log.d("521", "finishActivity: ");
-//            activities.pop().finish();
+            Log.d("521", "finishActivity: "+activities.size());
+            activities.pop().finish();
         }
     }
 

@@ -26,6 +26,7 @@ import com.sychan.shaka.app.ui.activity.LoginActivity;
 import com.sychan.shaka.app.ui.activity.NewTaskActivity;
 import com.sychan.shaka.app.ui.activity.RegisterActivity;
 import com.sychan.shaka.app.ui.activity.RetrieveActivity;
+import com.sychan.shaka.app.ui.activity.testActivity;
 import com.sychan.shaka.project.entity.model.Bean;
 
 import java.io.File;
@@ -197,6 +198,7 @@ public class MainActivity extends AppCompatActivity
             startActivityForResult(intent, IMAGE_PICKER);
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
+            startActivity(new Intent(this, testActivity.class));
 
         } else if (id == R.id.nav_slideshow) {
 
