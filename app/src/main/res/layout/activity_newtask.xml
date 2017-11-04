@@ -31,17 +31,6 @@
                 app:theme="@style/ToolBarStyle"
                 app:titleMarginStart="0dp">
 
-                <android.support.design.widget.TabLayout
-                    android:id="@+id/tab_layout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentBottom="true"
-                    app:tabGravity="fill"
-                    app:tabIndicatorHeight="0dp"
-                    app:tabMode="fixed"
-                    app:tabSelectedTextColor="@android:color/white"
-                    app:tabTextAppearance="@style/WX.TextAppearance.Design.Tab"
-                    app:tabTextColor="#b3ffffff" />
 
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.AppBarLayout>
@@ -50,9 +39,26 @@
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/appbar"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/viewpager"
+                app:tabGravity="fill"
+                app:tabIndicatorHeight="0dp"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@color/colorPrimary"
+                app:tabTextAppearance="@style/WX.TextAppearance.Design.Tab"
+                app:tabTextColor="#b3ffffff" />
+        </LinearLayout>
     </android.support.design.widget.CoordinatorLayout>
 
 </LinearLayout>

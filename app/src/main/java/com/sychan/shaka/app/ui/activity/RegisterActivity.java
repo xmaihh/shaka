@@ -66,7 +66,7 @@ public class RegisterActivity extends BaseActivity {
                     user.setAge("18");
                     user.setUsername(etForgetPassPhoneNum.getText().toString());
                     user.setPassword(etPasswd.getText().toString());
-                    user.setWchat(etPhoneCodes.getText().toString());
+                    user.setWechat(etPhoneCodes.getText().toString());
                     user.signUp(new SaveListener<User>() {
                         @Override
                         public void done(User user, BmobException e) {

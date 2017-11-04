@@ -22,12 +22,37 @@
 
     <include layout="@layout/content_main" />
 
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="bottom">-->
+
+    <!--<android.support.design.widget.TabLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content" />-->
+    <!--</LinearLayout>-->
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_input_get" />
+        app:srcCompat="@android:drawable/ic_menu_edit" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
+        app:itemIconTint="@color/selector_item_color"
+        app:itemTextColor="@color/selector_item_color"
+        app:layout_insetEdge="bottom"
+        app:menu="@menu/menu_navigation_with_view_pager" />
 
 </android.support.design.widget.CoordinatorLayout>
