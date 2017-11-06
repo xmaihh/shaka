@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#34d18c</color>
-    <color name="colorPrimaryDark">#34d18c</color>
-    <color name="colorAccent">#34d18c</color>
-    <color name="colorMaintext">#333333</color>
+    <color name="colorPrimary">#009688</color>
+    <color name="colorPrimaryDark">#00796B</color>
+    <color name="colorAccent">#B2DFDB</color>
+    <color name="colorMaintext">#212121</color>
     <color name="colorBg">#ebf4f1</color>
-    <color name="nav_selected">#34d18c</color>
+    <color name="nav_selected">#00796B</color>
 </resources>
