@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_translate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="转换成水印" />
+
+    <TextView
+        android:id="@+id/sour_pic_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="原图" />
+
+    <ImageView
+        android:id="@+id/sour_pic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:scaleType="centerInside" />
+
+    <TextView
+        android:id="@+id/watermark_pic_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="水印" />
+
+    <ImageView
+        android:id="@+id/wartermark_pic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:scaleType="centerInside" />
+
+</LinearLayout>

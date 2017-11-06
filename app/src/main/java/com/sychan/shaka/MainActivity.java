@@ -28,6 +28,7 @@ import com.sychan.shaka.app.ui.activity.RegisterActivity;
 import com.sychan.shaka.app.ui.activity.RetrieveActivity;
 import com.sychan.shaka.app.ui.activity.testActivity;
 import com.sychan.shaka.project.entity.model.Bean;
+import com.sychan.shaka.support.utils.DayNightHelper;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -59,12 +60,15 @@ public class MainActivity extends AppCompatActivity
     private ActionBarDrawerToggle toggle;
     private DrawerLayout drawer;
     private Bean bean;
+    private DayNightHelper mDayNightHelper;
 
     private int IMAGE_PICKER = 10086;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mDayNightHelper = new DayNightHelper(this);
+//        initTheme();
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -296,6 +300,14 @@ public class MainActivity extends AppCompatActivity
                 break;
         }
     }
+
+//    private void initTheme() {
+//        if (mDayNightHelper.isDay()) {
+////            setTheme(R.style.DayTheme);
+//        } else {
+////            setTheme(R.style.NightTheme);
+//        }
+//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
