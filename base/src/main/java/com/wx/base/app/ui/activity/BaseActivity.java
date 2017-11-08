@@ -56,7 +56,6 @@ public class BaseActivity extends AutoLayoutActivity {
         //WxApp.getInstance().addActivity(this);
         BaseApplication.addActivity(this);
     }
-
     /*********************************************************************************
      **  ActionBar Toolbar
      ********************************************************************************/

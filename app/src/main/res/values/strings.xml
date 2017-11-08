@@ -17,4 +17,8 @@
     <string name="menu_download">download</string>
     <string name="menu_register">register</string>
     <string name="menu_login">login</string>
+    <string name="tv_order_content">content:</string>
+    <string name="tv_order_deabline">deadline:</string>
+    <string name="tv_order_id">task Id:</string>
+    <string name="tv_order_take_it_now">take it now</string>
 </resources>

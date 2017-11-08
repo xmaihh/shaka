@@ -2,91 +2,73 @@ package com.sychan.shaka;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
-import com.lzy.imagepicker.ImagePicker;
-import com.lzy.imagepicker.bean.ImageItem;
 import com.lzy.imagepicker.ui.ImageGridActivity;
-import com.orhanobut.logger.Logger;
 import com.sychan.shaka.app.ui.activity.LauncherActivity;
 import com.sychan.shaka.app.ui.activity.LoginActivity;
 import com.sychan.shaka.app.ui.activity.NewTaskActivity;
 import com.sychan.shaka.app.ui.activity.RegisterActivity;
 import com.sychan.shaka.app.ui.activity.RetrieveActivity;
 import com.sychan.shaka.app.ui.activity.testActivity;
-import com.sychan.shaka.project.entity.model.Bean;
-import com.sychan.shaka.support.utils.DayNightHelper;
+import com.sychan.shaka.app.ui.adapter.SectionsPagerAdapter;
+import com.sychan.shaka.app.ui.fragment.NewTaskFragment;
+import com.sychan.shaka.app.ui.fragment.NewTestFragment;
+import com.sychan.shaka.app.ui.fragment.WaterMarkFragment;
+import com.sychan.shaka.app.ui.fragment.orderTakeFragment;
+import com.wx.base.app.ui.activity.BaseActivity;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
-import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.FindListener;
-import cn.bmob.v3.listener.SaveListener;
-import cn.bmob.v3.listener.UpdateListener;
 import cn.bmob.v3.listener.UploadFileListener;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends BaseActivity
+        implements NavigationView.OnNavigationItemSelectedListener,
+        ViewPager.OnPageChangeListener {
 
-    @BindView(R.id.btn_insert)
-    Button btnInsert;
-    @BindView(R.id.btn_delete)
-    Button btnDelete;
-    @BindView(R.id.btn_update)
-    Button btnUpdate;
-    @BindView(R.id.btn_select)
-    Button btnSelect;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.viewpager)
+    ViewPager viewPager;
+    @BindView(R.id.fab)
+    FloatingActionButton fab;
+    @BindView(R.id.bottom_navigation)
+    BottomNavigationView bottomnavigationView;
+    @BindView(R.id.nav_view)
+    NavigationView navigationView;
+    @BindView(R.id.drawer_layout)
+    DrawerLayout drawer;
+
     private ActionBarDrawerToggle toggle;
-    private DrawerLayout drawer;
-    private Bean bean;
-    private DayNightHelper mDayNightHelper;
-
     private int IMAGE_PICKER = 10086;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mDayNightHelper = new DayNightHelper(this);
-//        initTheme();
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
 
             @Override
@@ -101,13 +83,38 @@ public class MainActivity extends AppCompatActivity
                 return false;
             }
         };
-
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
+
+        viewPager.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
+            @Override
+            public int getCount() {
+                return 5;
+            }
+
+            @Override
+            public Fragment getItem(int position) {
+                switch (position) {
+                    case 0:
+                        return new orderTakeFragment();
+                    case 1:
+                        return new NewTestFragment();
+                    case 2:
+                        return new NewTaskFragment();
+                    case 3:
+                        return new NewTestFragment();
+                    case 4:
+                        return new NewTaskFragment();
+                    default:
+                        return new orderTakeFragment();
+                }
+            }
+        });
+        viewPager.addOnPageChangeListener(this);
+        bottomnavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 
@@ -118,6 +125,13 @@ public class MainActivity extends AppCompatActivity
                 } else {
                     drawer.openDrawer(Gravity.RIGHT);
                 }
+            }
+        });
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
     }
@@ -219,107 +233,29 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    @OnClick({R.id.btn_insert, R.id.btn_delete, R.id.btn_update, R.id.btn_select})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.btn_insert:
-                bean = new Bean();
-                bean.setName("123");
-                bean.setAge("20");
-                bean.setScore("100");
-                bean.save(new SaveListener<String>() {
-                    @Override
-                    public void done(String s, BmobException e) {
-                        if (e == null) {
-                            Toast.makeText(MainActivity.this, "保存成功", Toast.LENGTH_SHORT)
-                                    .show();
-                        } else {
-                            // 失败
-                            Toast.makeText(MainActivity.this, "保存失败", Toast.LENGTH_LONG)
-                                    .show();
-                        }
-                    }
-                });
-                break;
-            case R.id.btn_delete:
-                bean = new Bean();
-                bean.setObjectId("965de258b8");
-                bean.delete(new UpdateListener() {
-                    @Override
-                    public void done(BmobException e) {
-                        if (e == null) {
-                            Toast.makeText(MainActivity.this, "删除成功", Toast.LENGTH_SHORT)
-                                    .show();
-                        } else {
-                            Toast.makeText(MainActivity.this, "删除失败", Toast.LENGTH_SHORT)
-                                    .show();
-                        }
-                    }
-                });
-                break;
-            case R.id.btn_update:
-                bean = new Bean();
-                bean.setObjectId("965de258b8");
-                bean.setScore("99");
-                bean.update(new UpdateListener() {
-                    @Override
-                    public void done(BmobException e) {
-                        if (e == null) {
-                            Toast.makeText(MainActivity.this, "更新成功", Toast.LENGTH_SHORT)
-                                    .show();
-                        } else {
-                            Toast.makeText(MainActivity.this, "更新失败", Toast.LENGTH_SHORT)
-                                    .show();
-                        }
-                    }
-                });
-                break;
-            case R.id.btn_select:
-                BmobQuery<Bean> query = new BmobQuery<Bean>();
-                query.addWhereEqualTo("name", "123");
-                //返回5条数据，如果不加上这条语句，默认返回10条数据
-                query.setLimit(5);
-                query.findObjects(new FindListener<Bean>() {
-                    @Override
-                    public void done(List<Bean> list, BmobException e) {
-                        if (e == null) {
-                            Toast.makeText(MainActivity.this, "查询成功" + "\t" + list.size(), Toast.LENGTH_SHORT)
-                                    .show();
-                            Logger.d(list.size());
-                            for (Bean b : list) {
-                                Logger.d(b.toString());
-                            }
-                        } else {
-                            Toast.makeText(MainActivity.this, "查询失败", Toast.LENGTH_SHORT)
-                                    .show();
-                        }
-                    }
-                });
-                break;
-            default:
-                break;
-        }
-    }
-
-//    private void initTheme() {
-//        if (mDayNightHelper.isDay()) {
-////            setTheme(R.style.DayTheme);
-//        } else {
-////            setTheme(R.style.NightTheme);
-//        }
-//    }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == ImagePicker.RESULT_CODE_ITEMS) {
-            if (data != null && requestCode == IMAGE_PICKER) {
-                ArrayList<ImageItem> images = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_RESULT_ITEMS);
-//                MyAdapter adapter = new MyAdapter(images);
-//                gridView.setAdapter(adapter);
-            } else {
-                Toast.makeText(this, "没有数据", Toast.LENGTH_SHORT).show();
-            }
-        }
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
     }
+
+    @Override
+    public void onPageSelected(int position) {
+        //页面滑动的时候，设置BottomNavigationView的Item选中高亮
+        bottomnavigationView.getMenu().getItem(position).setChecked(true);
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            viewPager.setCurrentItem(item.getOrder());
+            return true;
+        }
+    };
 }

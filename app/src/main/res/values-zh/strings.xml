@@ -12,4 +12,11 @@
     <string name="menu_upload">上传</string>
     <string name="menu_login">登录</string>
     <string name="menu_register">注册</string>
+
+    <!--orderTake start-->
+    <string name="tv_order_id">任务ID：</string>
+    <string name="tv_order_content">内容：</string>
+    <string name="tv_order_deabline">截止时间:</string>
+    <string name="tv_order_take_it_now">马上抢﹥</string>
+    <!--orserTake end-->
 </resources>
