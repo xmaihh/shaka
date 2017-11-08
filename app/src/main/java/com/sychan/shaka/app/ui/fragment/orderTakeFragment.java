@@ -2,7 +2,10 @@ package com.sychan.shaka.app.ui.fragment;
 
 import com.sychan.shaka.R;
 import com.sychan.shaka.app.ui.adapter.orderTaskAdapter;
+import com.wx.base.app.ui.activity.SimpleBackActivity;
 import com.wx.base.app.ui.fragment.BaseRecyclerFragment;
+import com.wx.base.project.module.simpleback.SimpleBackHelper;
+import com.wx.base.project.module.simpleback.SimpleBackPage;
 
 /**
  * @author sychan

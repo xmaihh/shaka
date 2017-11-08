@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
+import com.sychan.shaka.project.config.SimpleBackPage;
 import com.sychan.shaka.support.utils.ImagePickerUtil;
 import com.wx.base.app.BaseApplication;
 
@@ -60,7 +61,7 @@ public class App extends BaseApplication {
                 .setUploadBlockSize(512 * 1024)
                 .build();
         Bmob.initialize(config);
-
+        SimpleBackPage.init();
     }
 
     public static Context getAppContext() {

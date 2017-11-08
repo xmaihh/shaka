@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.GravityCompat;
@@ -27,11 +26,11 @@ import com.sychan.shaka.app.ui.activity.NewTaskActivity;
 import com.sychan.shaka.app.ui.activity.RegisterActivity;
 import com.sychan.shaka.app.ui.activity.RetrieveActivity;
 import com.sychan.shaka.app.ui.activity.testActivity;
-import com.sychan.shaka.app.ui.adapter.SectionsPagerAdapter;
 import com.sychan.shaka.app.ui.fragment.NewTaskFragment;
 import com.sychan.shaka.app.ui.fragment.NewTestFragment;
-import com.sychan.shaka.app.ui.fragment.WaterMarkFragment;
 import com.sychan.shaka.app.ui.fragment.orderTakeFragment;
+import com.sychan.shaka.project.config.SimpleBackHelper;
+import com.sychan.shaka.project.config.SimpleBackPage;
 import com.wx.base.app.ui.activity.BaseActivity;
 
 import java.io.File;
@@ -130,8 +129,7 @@ public class MainActivity extends BaseActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+               SimpleBackHelper.showSimpleBack(mContext,SimpleBackPage.RELEASE_TASK);
             }
         });
     }

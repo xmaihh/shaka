@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.sychan.shaka.support.widget.MultiRadioGroupAuto
+            android:id="@+id/multi_radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/section_padding"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:layout_marginRight="@dimen/section_padding"
+            android:layout_marginTop="@dimen/section_padding" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_release_unit_price"
+                android:textColor="@color/colorSubtext"
+                android:textSize="@dimen/textsize_m" />
+
+            <TextView
+                android:id="@+id/tv_unit_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_attach_money_black_24dp"
+                android:text="100"
+                android:textColor="@color/colorSubtext"
+                android:textSize="@dimen/textsize_m" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_release_raise_price"
+                android:textColor="@color/colorSubtext"
+                android:textSize="@dimen/textsize_m" />
+
+            <TextView
+                android:id="@+id/tv_raise_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_attach_money_black_24dp"
+                android:text="100"
+                android:textColor="@color/colorSubtext"
+                android:textSize="@dimen/textsize_m" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_release_count"
+                android:textColor="@color/colorSubtext"
+                android:textSize="@dimen/textsize_m" />
+
+            <TextView
+                android:id="@+id/tv_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100"
+                android:textColor="@color/colorSubtext"
+                android:textSize="@dimen/textsize_m" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_release_total_price"
+                android:textColor="@color/colorSubtext"
+                android:textSize="@dimen/textsize_m" />
+
+            <TextView
+                android:id="@+id/tv_total_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_attach_money_black_24dp"
+                android:text="100"
+                android:textColor="@color/colorSubtext"
+                android:textSize="@dimen/textsize_m" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_release_company"
+                android:textColor="@color/colorSubtext"
+                android:textSize="@dimen/textsize_m" />
+
+            <EditText
+                android:id="@+id/edit_dskb_dhz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="16"
+                android:hint="@string/tv_release_company_hint"
+                android:textColor="@color/colorSubtext"
+                android:textColorHint="@color/colorLine"
+                android:textSize="@dimen/textsize_m" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_release_voter"
+                android:textColor="@color/colorSubtext"
+                android:textSize="@dimen/textsize_m" />
+
+            <EditText
+                android:id="@+id/edit_voter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="16"
+                android:hint="@string/tv_release_voter_hint"
+                android:textColor="@color/colorSubtext"
+                android:textColorHint="@color/colorLine"
+                android:textSize="@dimen/textsize_m" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_release_link"
+                android:textColor="@color/colorSubtext"
+                android:textSize="@dimen/textsize_m" />
+
+            <EditText
+                android:id="@+id/edit_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="16"
+                android:hint="@string/tv_release_link_hint"
+                android:textColor="@color/colorSubtext"
+                android:textColorHint="@color/colorLine"
+                android:textSize="@dimen/textsize_m" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="top"
+                android:text="@string/tv_release_remark"
+                android:textColor="@color/colorSubtext"
+                android:textSize="@dimen/textsize_m" />
+
+            <EditText
+                android:id="@+id/edit_remark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_weight="1"
+                android:background="@null"
+                android:ellipsize="end"
+                android:gravity="left|top"
+                android:hint="@string/tv_release_remark_hint"
+                android:inputType="textMultiLine"
+                android:minLines="6"
+                android:textColor="@color/colorSubtext"
+                android:textColorHint="@color/colorLine"
+                android:textSize="@dimen/textsize_m" />
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/image_gallery_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:choiceMode="singleChoice"
+            android:divider="@null"
+            android:fadingEdge="none"
+            android:listSelector="@android:color/transparent"
+            app:layoutManager="android.support.v7.widget.GridLayoutManager"
+            app:spanCount="4"
+            tools:listitem="@layout/item_list_image" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_release_confirm"
+            android:textSize="@dimen/textsize_m" />
+    </LinearLayout>
+</ScrollView>

@@ -21,4 +21,25 @@
     <string name="tv_order_deabline">deadline:</string>
     <string name="tv_order_id">task Id:</string>
     <string name="tv_order_take_it_now">take it now</string>
+    <string name="rb_release_focus">focus</string>
+    <string name="rb_release_pilot_vote">mp pilot vote</string>
+    <string name="rb_release_pviews">wx pviews</string>
+    <string name="rb_release_pviews_thumbs">wx pviews thumbs</string>
+    <string name="rb_release_pviews_thumbs_reviews">pviews thumbs reviews</string>
+    <string name="rb_release_tpos_vote">tpos vote</string>
+    <string name="tv_release_company">dskb-dhz</string>
+    <string name="tv_release_company_hint">dskb-dhz is useful</string>
+    <string name="tv_release_count">count</string>
+    <string name="tv_release_link">link</string>
+    <string name="tv_release_link_hint">link here</string>
+    <string name="tv_release_raise_price">raise price</string>
+    <string name="tv_release_remark">remark</string>
+    <string name="tv_release_remark_hint">escribe your task</string>
+    <string name="tv_release_total_price">total price</string>
+    <string name="tv_release_unit_price">unit price</string>
+    <string name="tv_release_voter">voter</string>
+    <string name="tv_release_voter_hint">voter or vote number</string>
+    <string name="btn_release_confirm">confirm</string>
+    <string name="tv_release_deabline">deadline</string>
+    <string name="fragment_release_task">release task</string>
 </resources>

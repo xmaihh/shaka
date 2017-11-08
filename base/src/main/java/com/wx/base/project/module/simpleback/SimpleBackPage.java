@@ -1,6 +1,5 @@
 package com.wx.base.project.module.simpleback;
 
-
 public class SimpleBackPage {
 //	ABOUT(1, R.string.actionbar_title_about, AboutFragment.class),
 //	PROFILE(2, R.string.actionbar_title_profile, UserProfileFragment.class),
@@ -25,46 +24,45 @@ public class SimpleBackPage {
 //	SHAKE(22, R.string.actionbar_title_shake, ShakeFragment.class);//,
 //	QRCODE_SCAN(23, R.string.actionbar_title_qrcode_scan, QrCodeScanFragment.class);
 
+    private int title;
+    private Class<?> clz;
+    private int value;
 
-	private int title;
-	private Class<?> clz;
-	private int value;
+    public SimpleBackPage(int value, int title, Class<?> clz) {
+        this.value = value;
+        this.title = title;
+        this.clz = clz;
+    }
 
-	public SimpleBackPage(int value, int title, Class<?> clz) {
-		this.value = value;
-		this.title = title;
-		this.clz = clz;
-	}
+    public int getTitle() {
+        return title;
+    }
 
-	public int getTitle() {
-		return title;
-	}
+    public void setTitle(int title) {
+        this.title = title;
+    }
 
-	public void setTitle(int title) {
-		this.title = title;
-	}
+    public Class<?> getClz() {
+        return clz;
+    }
 
-	public Class<?> getClz() {
-		return clz;
-	}
+    public void setClz(Class<?> clz) {
+        this.clz = clz;
+    }
 
-	public void setClz(Class<?> clz) {
-		this.clz = clz;
-	}
+    public int getValue() {
+        return value;
+    }
 
-	public int getValue() {
-		return value;
-	}
+    public void setValue(int value) {
+        this.value = value;
+    }
 
-	public void setValue(int value) {
-		this.value = value;
-	}
-
-	//public static SimpleBackPage getPageByValue(int val) {
-	//	for (SimpleBackPage p : values()) {
-	//		if (p.getValue() == val)
-	//			return p;
-	//	}
-	//	return null;
-	//}
+    //public static SimpleBackPage getPageByValue(int val) {
+    //	for (SimpleBackPage p : values()) {
+    //		if (p.getValue() == val)
+    //			return p;
+    //	}
+    //	return null;
+    //}
 }

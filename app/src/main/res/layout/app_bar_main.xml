@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
@@ -30,18 +31,21 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
+        android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_margin"
+        app:elevation="4dp"
+        app:fabSize="normal"
+        app:layout_behavior="com.sychan.shaka.support.behavior.FabScrollBehavior"
         app:srcCompat="@android:drawable/ic_menu_edit" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
         android:background="@color/colorPrimary"
         app:itemIconTint="@color/selector_item_color"
         app:itemTextColor="@color/selector_item_color"
+        app:layout_behavior="com.sychan.shaka.support.behavior.BottomNavigationViewBehavior"
         app:layout_insetEdge="bottom"
         app:menu="@menu/menu_navigation_with_view_pager" />
 

@@ -86,7 +86,7 @@ public class NewTaskFragment extends BaseFragment implements ImagePickerAdapter.
      * 动态添加RadioButton
      */
     private void initRadioButton() {
-//获取屏幕信息
+        //获取屏幕信息
         DisplayMetrics dm = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
         int screenWidth = dm.widthPixels;

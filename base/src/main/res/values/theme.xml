@@ -10,8 +10,10 @@
         <item name="android:windowBackground">@color/theme_window_background</item>
     </style>
 
-    <style name="AppTheme" parent="BaseTheme">
+    <style name="AppTheme.NoActionBar" parent="BaseTheme">
         <!-- Customize your theme here. -->
+            <item name="windowActionBar">false</item>
+            <item name="windowNoTitle">true</item>
     </style>
 
 </resources>
