@@ -20,6 +20,7 @@ public class ReleaseTask extends BmobObject {
     private Integer count;          //数量
     private Integer totalprice;     //总价
     private String publicaccounts;  //公众号
+    private String voter;           //被投人
     private String url;             //链接
     private String remark;          //备注
     private Date createdat;         //创建日期
@@ -106,6 +107,14 @@ public class ReleaseTask extends BmobObject {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getVoter() {
+        return voter;
+    }
+
+    public void setVoter(String voter) {
+        this.voter = voter;
     }
 
     public String getRemark() {

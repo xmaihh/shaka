@@ -26,7 +26,6 @@ import com.sychan.shaka.app.ui.activity.NewTaskActivity;
 import com.sychan.shaka.app.ui.activity.RegisterActivity;
 import com.sychan.shaka.app.ui.activity.RetrieveActivity;
 import com.sychan.shaka.app.ui.activity.testActivity;
-import com.sychan.shaka.app.ui.fragment.NewTaskFragment;
 import com.sychan.shaka.app.ui.fragment.NewTestFragment;
 import com.sychan.shaka.app.ui.fragment.orderTakeFragment;
 import com.sychan.shaka.project.config.SimpleBackHelper;
@@ -102,11 +101,11 @@ public class MainActivity extends BaseActivity
                     case 1:
                         return new NewTestFragment();
                     case 2:
-                        return new NewTaskFragment();
+                        return new NewTestFragment();
                     case 3:
                         return new NewTestFragment();
                     case 4:
-                        return new NewTaskFragment();
+                        return new NewTestFragment();
                     default:
                         return new orderTakeFragment();
                 }

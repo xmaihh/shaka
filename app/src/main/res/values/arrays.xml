@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="order_type">
-        <item>New York</item>
-        <item>Los Angeles</item>
-        <item>San Francisco</item>
-        <item>Paris</item>
-        <item>London</item>
+        <item>@string/arrays_all_type</item>
+        <item>@string/arrays_focus_type</item>
+        <item>@string/arrays_pviews_type</item>
+        <item>@string/arrays_vote_type</item>
+        <item>@string/arrays_pviews_thumbs_type</item>
     </string-array>
 
 </resources>

@@ -12,8 +12,13 @@
 
     <style name="AppTheme.NoActionBar" parent="BaseTheme">
         <!-- Customize your theme here. -->
-            <item name="windowActionBar">false</item>
-            <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme" parent="BaseTheme">
+        <!-- Customize your theme here. -->
+
     </style>
 
 </resources>

@@ -7,12 +7,10 @@
 
     <ProgressBar
         android:id="@+id/progress"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="100dp"
-        android:layout_height="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:indeterminate="true"
-        android:progressDrawable="@drawable/progressbar_horizontal_1" />
+        android:indeterminate="true" />
 
     <TextView
         android:layout_width="wrap_content"

@@ -13,6 +13,13 @@
     <string name="menu_login">登录</string>
     <string name="menu_register">注册</string>
 
+    <!--arrays-->
+    <string name="arrays_all_type">全部类型</string>
+    <string name="arrays_vote_type">投票类型</string>
+    <string name="arrays_focus_type">关注类型</string>
+    <string name="arrays_pviews_type">微信阅读量</string>
+    <string name="arrays_pviews_thumbs_type">微信阅读评论点赞</string>
+
     <!--orderTake start-->
     <string name="tv_order_id">任务ID：</string>
     <string name="tv_order_content">内容：</string>
@@ -28,19 +35,27 @@
     <string name="rb_release_pviews">微信阅读量</string>
     <string name="rb_release_pviews_thumbs">微信阅读点赞</string>
     <string name="rb_release_pviews_thumbs_reviews">微信阅读评论点赞</string>
-    <string name="tv_release_unit_price">单价</string>
-    <string name="tv_release_raise_price">加价</string>
-    <string name="tv_release_count">数量</string>
-    <string name="tv_release_total_price">总价</string>
-    <string name="tv_release_company">公众号</string>
+    <string name="tv_release_unit_price">单价：</string>
+    <string name="tv_release_raise_price">加价：</string>
+    <string name="tv_release_count">数量：</string>
+    <string name="tv_release_total_price">总价：</string>
+    <string name="tv_release_company">公众号：</string>
     <string name="tv_release_company_hint">正确的公众号有助于提高合格率</string>
-    <string name="tv_release_voter">被投人</string>
+    <string name="tv_release_voter">被投人：</string>
     <string name="tv_release_voter_hint">正确的被投人或被投编号</string>
-    <string name="tv_release_link">链接</string>
+    <string name="tv_release_link">链接：</string>
     <string name="tv_release_link_hint">链接</string>
-    <string name="tv_release_remark">备注</string>
+    <string name="tv_release_remark">备注：</string>
     <string name="tv_release_remark_hint">描述一下你的任务</string>
-    <string name="tv_release_deadline">截至时间</string>
+    <string name="tv_release_deadline">截至时间：</string>
     <string name="btn_release_confirm">确认发布</string>
+    <string name="fragment_release_task">发布任务</string>
+    <string name="tv_release_deabline">截至时间：</string>
+    <string name="tips_data_invalid">s%数据无效，请检查</string>
+    <string name="tips_upload_image">未上传示例图</string>
+    <string name="toast_error_code">错误码\t</string>
+    <string name="toast_error_describe">描述\t</string>
+    <string name="toast_success">操作成功</string>
+    <string name="toast_failure">操作失败</string>
     <!--releaseTask end-->
 </resources>
