@@ -48,10 +48,12 @@ public class orderTaskHolder extends BaseHolder<ReleaseTask>
 
     @Override
     public boolean bindViewHolder(ReleaseTask entity, int position) {
-//        tvTaskId.setText(entity.getUnitprice());
-//        tvContent.setText(entity.getTitle() + entity.getRemark());
-//        tvPrice.setText(entity.getUnitprice());
-//        tvDeadline.setText(entity.getDeadline().toString());
+        tvTaskId.setText(getResources().getString(R.string.tv_order_id)
+                + entity.getObjectId());
+        tvContent.setText(getResources().getString(R.string.tv_order_content)
+                + entity.getTitle() + entity.getRemark());
+        tvPrice.setText(String.valueOf(entity.getTotalprice()));
+        tvDeadline.setText(entity.getDeadline().toString());
 
         itemView.setOnClickListener(this);
         itemView.setOnLongClickListener(this);

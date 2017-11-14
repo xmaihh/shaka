@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">shaka</string>
-    <string name="action_settings">设置</string>
+    <string name="action_settings">登出</string>
     <string name="btn_delete">删</string>
     <string name="btn_insert">增</string>
     <string name="btn_select">查</string>
@@ -58,4 +58,18 @@
     <string name="toast_success">操作成功</string>
     <string name="toast_failure">操作失败</string>
     <!--releaseTask end-->
+
+    <!--orderDetail start-->
+    <string name="title_fragment_orderDetail">任务详情</string>
+    <string name="tv_order_detail_company">公众号：</string>
+    <string name="tv_order_detail_voter">被投人：</string>
+    <string name="tv_order_detail_link">链接：</string>
+    <string name="tv_order_detail_pay">奖励：</string>
+    <string name="tv_order_detail_remark">备注：</string>
+    <string name="tv_order_detail_image_proof">样图:</string>
+    <string name="tv_order_detail_image_submit">提交截图</string>
+    <string name="toast_on_the_clipboard">已粘贴到剪切板</string>
+    <string name="btn_accept">接受任务</string>
+    <string name="btn_submit">提交任务</string>
+    <!--orderDetail end -->
 </resources>

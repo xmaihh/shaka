@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_dsk_bdhz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:layout_marginRight="@dimen/section_padding"
+            android:layout_marginTop="@dimen/section_padding"
+            android:text="@string/tv_order_detail_company"
+            android:textColor="@color/colorSubtext"
+            android:textSize="@dimen/textsize_m" />
+
+        <TextView
+            android:id="@+id/tv_voter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:layout_marginRight="@dimen/section_padding"
+            android:layout_marginTop="@dimen/section_padding"
+            android:text="@string/tv_order_detail_voter"
+            android:textColor="@color/colorSubtext"
+            android:textSize="@dimen/textsize_m" />
+
+        <TextView
+            android:id="@+id/tv_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:layout_marginRight="@dimen/section_padding"
+            android:layout_marginTop="@dimen/section_padding"
+            android:drawableRight="@drawable/ic_content_copy_black_24dp"
+            android:ellipsize="end"
+            android:maxEms="18"
+            android:singleLine="true"
+            android:text="@string/tv_order_detail_link"
+            android:textColor="@color/colorSubtext"
+            android:textSize="@dimen/textsize_m" />
+
+        <TextView
+            android:id="@+id/tv_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:layout_marginRight="@dimen/section_padding"
+            android:layout_marginTop="@dimen/section_padding"
+            android:drawableRight="@drawable/ic_attach_money_black_24dp"
+            android:text="@string/tv_order_detail_pay"
+            android:textColor="@color/colorSubtext"
+            android:textSize="@dimen/textsize_m" />
+
+        <TextView
+            android:id="@+id/tv_remark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:layout_marginRight="@dimen/section_padding"
+            android:layout_marginTop="@dimen/section_padding"
+            android:text="@string/tv_order_detail_remark"
+            android:textColor="@color/colorSubtext"
+            android:textSize="@dimen/textsize_m" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:layout_marginRight="@dimen/section_padding"
+            android:layout_marginTop="@dimen/section_padding"
+            android:text="@string/tv_order_detail_image_proof"
+            android:textColor="@color/colorSubtext"
+            android:textSize="@dimen/textsize_m" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/image_proof"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/section_padding"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:layout_marginRight="@dimen/section_padding"
+            android:layout_marginTop="@dimen/section_padding"
+            android:background="@android:color/white"
+            android:choiceMode="singleChoice"
+            android:divider="@null"
+            android:fadingEdge="none"
+            android:listSelector="@android:color/transparent"
+            app:layoutManager="android.support.v7.widget.GridLayoutManager"
+            app:spanCount="4"
+            tools:listitem="@layout/item_list_image" />
+
+        <TextView
+            android:id="@+id/submit_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:layout_marginRight="@dimen/section_padding"
+            android:text="@string/tv_order_detail_image_submit"
+            android:textColor="@color/colorSubtext"
+            android:textSize="@dimen/textsize_m" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/image_gallery_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/section_padding"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:layout_marginRight="@dimen/section_padding"
+            android:layout_marginTop="@dimen/section_padding"
+            android:background="@android:color/white"
+            android:choiceMode="singleChoice"
+            android:divider="@null"
+            android:fadingEdge="none"
+            android:listSelector="@android:color/transparent"
+            android:visibility="gone"
+            app:layoutManager="android.support.v7.widget.GridLayoutManager"
+            app:spanCount="4"
+            tools:listitem="@layout/item_list_image" />
+
+        <Button
+            android:id="@+id/btn_accept_it_now"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/section_padding"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:layout_marginRight="@dimen/section_padding"
+            android:text="@string/btn_accept"
+            android:textSize="@dimen/textsize_m" />
+        <Button
+            android:id="@+id/btn_submit_it_now"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/section_padding"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:layout_marginRight="@dimen/section_padding"
+            android:text="@string/btn_submit"
+            android:visibility="gone"
+            android:textSize="@dimen/textsize_m" />
+    </LinearLayout>
+</ScrollView>

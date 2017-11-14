@@ -30,7 +30,6 @@ import com.sychan.shaka.app.ui.adapter.ImagePickerAdapter;
 import com.sychan.shaka.project.config.Constants;
 import com.sychan.shaka.project.config.orderType;
 import com.sychan.shaka.project.entity.model.ReleaseTask;
-import com.sychan.shaka.project.entity.model.Task;
 import com.sychan.shaka.project.entity.model.User;
 import com.sychan.shaka.support.utils.PreferenceUtils;
 import com.sychan.shaka.support.utils.ToastUtil;
@@ -54,6 +53,7 @@ import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UploadBatchListener;
 
+import static android.app.Activity.RESULT_CANCELED;
 import static com.sychan.shaka.project.config.Constants.ACKNOW_ORDER;
 import static com.sychan.shaka.project.config.Constants.CLOSING_DEAL;
 import static com.sychan.shaka.project.config.Constants.CURRENT_TYPE;
@@ -137,7 +137,7 @@ public class releaseTaskFragment extends BaseFragment implements
         selImageList = new ArrayList<>();
         adapter = new ImagePickerAdapter(mContext, selImageList, maxImgCount);
         adapter.setOnItemClickListener(this);
-        recyclerView.setLayoutManager(new GridLayoutManager(mContext, 4));
+        recyclerView.setLayoutManager(new GridLayoutManager(mContext, 3));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
         tvCount.setGoods_storage(1000);
@@ -335,7 +335,7 @@ public class releaseTaskFragment extends BaseFragment implements
                 //打开选择,本次允许选择的数量
                 ImagePicker.getInstance().setSelectLimit(maxImgCount - selImageList.size());
                 Intent intent1 = new Intent(mContext, ImageGridActivity.class);
-                startActivityForResult(intent1, REQUEST_CODE_SELECT);
+                getActivity().startActivityForResult(intent1, REQUEST_CODE_SELECT);
                 break;
             default:
                 //打开预览
@@ -343,7 +343,7 @@ public class releaseTaskFragment extends BaseFragment implements
                 intentPreview.putExtra(ImagePicker.EXTRA_IMAGE_ITEMS, (ArrayList<ImageItem>) adapter.getImages());
                 intentPreview.putExtra(ImagePicker.EXTRA_SELECTED_IMAGE_POSITION, position);
                 intentPreview.putExtra(ImagePicker.EXTRA_FROM_ITEMS, true);
-                startActivityForResult(intentPreview, REQUEST_CODE_PREVIEW);
+                getActivity().startActivityForResult(intentPreview, REQUEST_CODE_PREVIEW);
                 break;
         }
     }
@@ -351,23 +351,26 @@ public class releaseTaskFragment extends BaseFragment implements
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == ImagePicker.RESULT_CODE_ITEMS) {
-            //添加图片返回
-            if (data != null && requestCode == REQUEST_CODE_SELECT) {
-                images = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_RESULT_ITEMS);
-                if (images != null) {
-                    selImageList.addAll(images);
-                    adapter.setImages(selImageList);
+        if (resultCode != RESULT_CANCELED) {
+            if (resultCode == ImagePicker.RESULT_CODE_ITEMS) {
+                //添加图片返回
+                if (data != null && requestCode == REQUEST_CODE_SELECT) {
+                    images = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_RESULT_ITEMS);
+                    if (images != null) {
+                        Log.d("521", "images: 数量" + images.size());
+                        selImageList.addAll(images);
+                        adapter.setImages(selImageList);
+                    }
                 }
-            }
-        } else if (resultCode == ImagePicker.RESULT_CODE_BACK) {
-            //预览图片返回
-            if (data != null && requestCode == REQUEST_CODE_PREVIEW) {
-                images = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_IMAGE_ITEMS);
-                if (images != null) {
-                    selImageList.clear();
-                    selImageList.addAll(images);
-                    adapter.setImages(selImageList);
+            } else if (resultCode == ImagePicker.RESULT_CODE_BACK) {
+                //预览图片返回
+                if (data != null && requestCode == REQUEST_CODE_PREVIEW) {
+                    images = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_IMAGE_ITEMS);
+                    if (images != null) {
+                        selImageList.clear();
+                        selImageList.addAll(images);
+                        adapter.setImages(selImageList);
+                    }
                 }
             }
         }

@@ -41,22 +41,24 @@ public abstract class BaseRecyclerFragment extends BaseFragment {
     protected int mCurrentPage = 0;
 
     @Override
-    protected int getLayout(){
+    protected int getLayout() {
         return R.layout.fragment_common_recyclerview;
     }
 
     @Override
     @CallSuper
-    protected void bindViews(View view){
+    protected void bindViews(View view) {
         super.bindViews(view);
-        recyclerView = (RecyclerView)view.findViewById(R.id.recycler);
-        swipeLayout = (SwipeRefreshLayout)view.findViewById(R.id.swipeLayout);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler);
+        swipeLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeLayout);
     }
 
     //protected void initBundle(){};
     //protected abstract void initViews();
     //protected abstract void initDatas();
-    protected void requestData(){}
+    protected void requestData() {
+    }
+
     protected abstract void requestNext();
 
     @Override
@@ -64,8 +66,8 @@ public abstract class BaseRecyclerFragment extends BaseFragment {
     protected void setup() {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(getDefaultLayoutManager());
-        recyclerView.addItemDecoration(itemDecoration = new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL));
-        if(adapter != null){
+        recyclerView.addItemDecoration(itemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+        if (adapter != null) {
             BaseAdapter madapter = adapter;
             adapter = null;
             setRecyclerAdapter(madapter);
@@ -76,12 +78,12 @@ public abstract class BaseRecyclerFragment extends BaseFragment {
         enableLoadMore();
     }
 
-    protected void enableSwipe(boolean enabled){
-        if(swipeLayout == null){
+    protected void enableSwipe(boolean enabled) {
+        if (swipeLayout == null) {
             return;
         }
         swipeLayout.setEnabled(enabled);
-        if(enabled) {
+        if (enabled) {
             swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                 @Override
                 public void onRefresh() {
@@ -89,52 +91,53 @@ public abstract class BaseRecyclerFragment extends BaseFragment {
                     requestData();
                 }
             });
-        }else{
+        } else {
             swipeLayout.setOnRefreshListener(null);
         }
     }
 
-    protected void setSwipeRefresh(boolean refreshing){
-        if(swipeLayout != null)
-        swipeLayout.setRefreshing(refreshing);
+    protected void setSwipeRefresh(boolean refreshing) {
+        if (swipeLayout != null)
+            swipeLayout.setRefreshing(refreshing);
     }
 
     /**
      * Provide the RecyclerView.Adapter for the recycler view.
      */
-    protected void setRecyclerAdapter(BaseAdapter adapter){
+    protected void setRecyclerAdapter(BaseAdapter adapter) {
         this.adapter = adapter;
-        if(recyclerView != null){
+        if (recyclerView != null) {
             recyclerView.setAdapter(adapter);
         }
     }
+
     /**
      * Get the RecyclerView.Adapter associated with this fragment's RecyclerView.
      */
-    protected BaseAdapter getRecyclerAdapter(){
+    protected BaseAdapter getRecyclerAdapter() {
         return this.adapter;
     }
 
 
-    protected void setLayoutManager(RecyclerView.LayoutManager layoutManager){
+    protected void setLayoutManager(RecyclerView.LayoutManager layoutManager) {
         this.layoutManager = layoutManager;
-        if(recyclerView != null){
+        if (recyclerView != null) {
             recyclerView.setLayoutManager(layoutManager);
         }
     }
 
-    protected RecyclerView.LayoutManager getDefaultLayoutManager(){
+    protected RecyclerView.LayoutManager getDefaultLayoutManager() {
         return new LinearLayoutManager(getActivity());//,LinearLayoutManager.VERTICAL, false);
     }
 
-    protected RecyclerView.LayoutManager getLayoutManager(){
-        if(layoutManager != null){
+    protected RecyclerView.LayoutManager getLayoutManager() {
+        if (layoutManager != null) {
             return layoutManager;
         }
         int orientation = this.getResources().getConfiguration().orientation;
-        if(orientation == Configuration.ORIENTATION_LANDSCAPE){//ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE){
-            return new StaggeredGridLayoutManager(4,StaggeredGridLayoutManager.VERTICAL);
-        }else{
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {//ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE){
+            return new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL);
+        } else {
             return new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         }
         //if(layoutManager == null){
@@ -144,12 +147,12 @@ public abstract class BaseRecyclerFragment extends BaseFragment {
     }
 
 
-    protected void enableLoadMore(){
-        if(recyclerView == null){
+    protected void enableLoadMore() {
+        if (recyclerView == null) {
             return;
         }
 
-        if(!PAGE_LOADING){
+        if (!PAGE_LOADING) {
             return;
         }
 
@@ -157,16 +160,13 @@ public abstract class BaseRecyclerFragment extends BaseFragment {
         //recyclerView.addOnScrollListener(mOnScrollListener);
     }
 
-    protected void disableLoadMore(){
-        if(recyclerView == null){
+    protected void disableLoadMore() {
+        if (recyclerView == null) {
             return;
         }
         recyclerView.clearOnScrollListeners();
 
     }
-
-
-
 
     @Override
     public void onDestroyView() {

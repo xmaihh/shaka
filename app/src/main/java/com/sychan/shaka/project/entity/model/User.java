@@ -1,8 +1,11 @@
 package com.sychan.shaka.project.entity.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import cn.bmob.v3.BmobUser;
 
-public class User extends BmobUser {
+public class User extends BmobUser implements Parcelable{
     private String name;
     private String age;
     private Integer gender;
@@ -99,4 +102,49 @@ public class User extends BmobUser {
                 ", installation=" + installation +
                 '}';
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.name);
+        dest.writeString(this.age);
+        dest.writeValue(this.gender);
+        dest.writeString(this.phone);
+        dest.writeString(this.wechat);
+        dest.writeString(this.idcard);
+        dest.writeValue(this.codecount);
+        dest.writeString(this.aapt);
+        dest.writeSerializable(this.installation);
+    }
+
+    public User() {
+    }
+
+    protected User(Parcel in) {
+        this.name = in.readString();
+        this.age = in.readString();
+        this.gender = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.phone = in.readString();
+        this.wechat = in.readString();
+        this.idcard = in.readString();
+        this.codecount = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.aapt = in.readString();
+        this.installation = (Installation) in.readSerializable();
+    }
+
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel source) {
+            return new User(source);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
 }

@@ -55,4 +55,15 @@
     <string name="toast_error_describe">describe</string>
     <string name="toast_failure">failure</string>
     <string name="toast_success">success</string>
+    <string name="btn_accept">accept</string>
+    <string name="btn_submit">submit</string>
+    <string name="title_fragment_orderDetail">order detail</string>
+    <string name="tv_order_detail_company">dskb-dhz:</string>
+    <string name="tv_order_detail_link">link:</string>
+    <string name="tv_order_detail_voter">voter:</string>
+    <string name="tv_order_detail_pay">pay:</string>
+    <string name="tv_order_detail_remark">remark:</string>
+    <string name="tv_order_detail_image_proof">proof:</string>
+    <string name="tv_order_detail_image_submit">submit image</string>
+    <string name="toast_on_the_clipboard">pasted to clipboard</string>
 </resources>

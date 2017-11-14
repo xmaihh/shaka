@@ -1,5 +1,10 @@
 package com.sychan.shaka.project.entity.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -10,7 +15,8 @@ import cn.bmob.v3.datatype.BmobFile;
  * 发布任务
  */
 
-public class ReleaseTask extends BmobObject {
+public class ReleaseTask extends BmobObject implements Parcelable {
+
     private String title;           //发布标题
     private User publisher;         //发布人
     private Boolean ispublish;      //允许发布
@@ -27,7 +33,6 @@ public class ReleaseTask extends BmobObject {
     private Date deadline;          //截至时间
     private Date finishDate;        //完成时间
     private List<BmobFile> files;
-
 
     public String getTitle() {
         return title;
@@ -159,23 +164,65 @@ public class ReleaseTask extends BmobObject {
 
 
     @Override
-    public String toString() {
-        return "ReleaseTask{" +
-                "title='" + title + '\'' +
-                ", publisher=" + publisher +
-                ", ispublish=" + ispublish +
-                ", type=" + type +
-                ", unitprice=" + unitprice +
-                ", raiseprice=" + raiseprice +
-                ", count=" + count +
-                ", totalprice=" + totalprice +
-                ", publicaccounts='" + publicaccounts + '\'' +
-                ", url='" + url + '\'' +
-                ", remark='" + remark + '\'' +
-                ", createdat=" + createdat +
-                ", deadline=" + deadline +
-                ", finishDate=" + finishDate +
-                ", files=" + files +
-                '}';
+    public int describeContents() {
+        return 0;
     }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.title);
+        dest.writeSerializable(this.publisher);
+        dest.writeValue(this.ispublish);
+        dest.writeValue(this.type);
+        dest.writeValue(this.unitprice);
+        dest.writeValue(this.raiseprice);
+        dest.writeValue(this.count);
+        dest.writeValue(this.totalprice);
+        dest.writeString(this.publicaccounts);
+        dest.writeString(this.voter);
+        dest.writeString(this.url);
+        dest.writeString(this.remark);
+        dest.writeLong(this.createdat != null ? this.createdat.getTime() : -1);
+        dest.writeLong(this.deadline != null ? this.deadline.getTime() : -1);
+        dest.writeLong(this.finishDate != null ? this.finishDate.getTime() : -1);
+        dest.writeList(this.files);
+    }
+
+    public ReleaseTask() {
+    }
+
+    protected ReleaseTask(Parcel in) {
+        this.title = in.readString();
+        this.publisher = (User) in.readSerializable();
+        this.ispublish = (Boolean) in.readValue(Boolean.class.getClassLoader());
+        this.type = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.unitprice = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.raiseprice = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.count = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.totalprice = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.publicaccounts = in.readString();
+        this.voter = in.readString();
+        this.url = in.readString();
+        this.remark = in.readString();
+        long tmpCreatedat = in.readLong();
+        this.createdat = tmpCreatedat == -1 ? null : new Date(tmpCreatedat);
+        long tmpDeadline = in.readLong();
+        this.deadline = tmpDeadline == -1 ? null : new Date(tmpDeadline);
+        long tmpFinishDate = in.readLong();
+        this.finishDate = tmpFinishDate == -1 ? null : new Date(tmpFinishDate);
+        this.files = new ArrayList<BmobFile>();
+        in.readList(this.files, BmobFile.class.getClassLoader());
+    }
+
+    public static final Creator<ReleaseTask> CREATOR = new Creator<ReleaseTask>() {
+        @Override
+        public ReleaseTask createFromParcel(Parcel source) {
+            return new ReleaseTask(source);
+        }
+
+        @Override
+        public ReleaseTask[] newArray(int size) {
+            return new ReleaseTask[size];
+        }
+    };
 }

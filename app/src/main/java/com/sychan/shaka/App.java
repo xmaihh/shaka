@@ -6,6 +6,7 @@ import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 import com.sychan.shaka.project.config.SimpleBackPage;
 import com.sychan.shaka.support.utils.ImagePickerUtil;
+import com.tencent.bugly.crashreport.CrashReport;
 import com.wx.base.app.BaseApplication;
 
 import cn.bmob.v3.Bmob;
@@ -46,7 +47,7 @@ public class App extends BaseApplication {
         Bmob.initialize(this, "7d152f76660474edee4fc4a1bcf2911e");
 
         //TX Crash收集
-//        CrashReport.initCrashReport(getApplicationContext(), "803534fc5e", true);
+        CrashReport.initCrashReport(getApplicationContext(), "803534fc5e", true);
         //Logger 日志收集
         Logger.addLogAdapter(new AndroidLogAdapter());
         //配置图片选择器

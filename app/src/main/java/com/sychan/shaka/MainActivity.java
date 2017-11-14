@@ -128,7 +128,7 @@ public class MainActivity extends BaseActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               SimpleBackHelper.showSimpleBack(mContext,SimpleBackPage.RELEASE_TASK);
+                SimpleBackHelper.showSimpleBack(mContext, SimpleBackPage.RELEASE_TASK);
             }
         });
     }
@@ -146,7 +146,7 @@ public class MainActivity extends BaseActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the menu; this adds items to the action bar if it is Contract.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
