@@ -4,9 +4,10 @@ import android.content.Context;
 
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
+import com.sychan.shaka.project.config.Constants;
 import com.sychan.shaka.project.config.SimpleBackPage;
 import com.sychan.shaka.support.utils.ImagePickerUtil;
-import com.tencent.bugly.crashreport.CrashReport;
+import com.tencent.bugly.Bugly;
 import com.wx.base.app.BaseApplication;
 
 import cn.bmob.v3.Bmob;
@@ -44,10 +45,12 @@ public class App extends BaseApplication {
         instance = this;
         // 初始化 Bmob SDK
         // 使用时请将第二个参数Application ID替换成你在Bmob服务器端创建的Application ID
-        Bmob.initialize(this, "7d152f76660474edee4fc4a1bcf2911e");
+        Bmob.initialize(this, Constants.BMOB_SDK);
 
         //TX Crash收集
-        CrashReport.initCrashReport(getApplicationContext(), "803534fc5e", true);
+//        CrashReport.initCrashReport(getApplicationContext(), "803534fc5e", true);
+        Bugly.init(getApplicationContext(), Constants.BUGLY_SDK, false);
+
         //Logger 日志收集
         Logger.addLogAdapter(new AndroidLogAdapter());
         //配置图片选择器
@@ -55,7 +58,7 @@ public class App extends BaseApplication {
 
         //设置BmobConfig
         BmobConfig config = new BmobConfig.Builder(instance)
-                .setApplicationId("7d152f76660474edee4fc4a1bcf2911e")
+                .setApplicationId(Constants.BMOB_SDK)
                 //请求超时时间（单位为秒）：默认15s
                 .setConnectTimeout(30)
                 //文件分片上传时每片的大小（单位字节），默认512*1024

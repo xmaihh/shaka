@@ -66,4 +66,18 @@
     <string name="tv_order_detail_image_proof">proof:</string>
     <string name="tv_order_detail_image_submit">submit image</string>
     <string name="toast_on_the_clipboard">pasted to clipboard</string>
+    <string name="headerlayout_title">current user</string>
+    <string name="app_setting_share">share</string>
+    <string name="app_setting_contact">contact me</string>
+    <string name="app_main_prepaid">prepaid</string>
+    <string name="app_main_home">home</string>
+    <string name="app_main_code">code</string>
+    <string name="app_setting_tools">tools</string>
+    <string name="app_setting_logout">logout</string>
+    <string name="app_setting_power_off">power off</string>
+    <string name="app_setting_update">check update</string>
+    <string name="fragment_invitation_code">invitation code</string>
+    <string name="tv_invitation_code">invitation code:</string>
+    <string name="tv_invitation_earnings">invitation earnings:</string>
+    <string name="tv_invitation_count">invitation count:</string>
 </resources>

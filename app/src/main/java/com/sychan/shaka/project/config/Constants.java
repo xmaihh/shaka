@@ -1,6 +1,8 @@
 package com.sychan.shaka.project.config;
 
 public class Constants {
+    public static final String BMOB_SDK = "7d152f76660474edee4fc4a1bcf2911e";
+    public static final String BUGLY_SDK = "803534fc5e";
     //图片选择器
     public static final int IMAGE_ITEM_ADD = -1;
     public static final int REQUEST_CODE_SELECT = 100;

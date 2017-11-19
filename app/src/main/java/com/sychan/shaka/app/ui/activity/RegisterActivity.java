@@ -13,9 +13,12 @@ import com.sychan.shaka.App;
 import com.sychan.shaka.R;
 import com.sychan.shaka.project.entity.model.User;
 import com.sychan.shaka.support.utils.Code;
+import com.sychan.shaka.support.utils.RC4;
 import com.sychan.shaka.support.utils.ToastUtil;
 import com.sychan.shaka.support.widget.TogglePasswordVisibilityEditText;
 import com.wx.base.app.ui.activity.BaseActivity;
+
+import java.util.UUID;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -66,7 +69,10 @@ public class RegisterActivity extends BaseActivity {
                     user.setAge("18");
                     user.setUsername(etForgetPassPhoneNum.getText().toString());
                     user.setPassword(etPasswd.getText().toString());
+                    user.setSecret(etPasswd.getText().toString());
                     user.setWechat(etPhoneCodes.getText().toString());
+                    String encode = RC4.encry_RC4_string(String.format("%04d",1), UUID.randomUUID().toString().replace("-", "").toUpperCase());
+                    user.setInvitecode(encode);
                     user.signUp(new SaveListener<User>() {
                         @Override
                         public void done(User user, BmobException e) {

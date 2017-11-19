@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#28385E"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:text="最低温度：" />
+
+            <EditText
+                android:id="@+id/min_temp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入最低温度"
+                android:inputType="numberDecimal|numberSigned" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:text="最高温度：" />
+
+            <EditText
+                android:id="@+id/max_temp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入最高温度"
+                android:inputType="numberDecimal|numberSigned" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:text="实时温度：" />
+
+            <EditText
+                android:id="@+id/current_temp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入实时温度"
+                android:inputType="numberDecimal|numberSigned" />
+        </TableRow>
+    </TableLayout>
+
+    <com.sychan.shaka.support.widget.LineCircle
+        android:id="@+id/lindCircle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

@@ -12,6 +12,18 @@
     <string name="menu_upload">上传</string>
     <string name="menu_login">登录</string>
     <string name="menu_register">注册</string>
+    <!--headerLayout-->
+    <string name="headerlayout_title">当前用户</string>
+    <string name="app_main_home">首页</string>
+    <string name="app_main_code">邀请码</string>
+    <string name="app_main_prepaid">充值</string>
+    <string name="app_setting_contact">联系我</string>
+    <string name="app_setting_share">分享</string>
+    <string name="app_setting_tools">设置</string>
+    <string name="app_setting_update">检查更新</string>
+    <string name="app_setting_logout">更换账号</string>
+    <string name="app_setting_power_off">关闭应用</string>
+
 
     <!--arrays-->
     <string name="arrays_all_type">全部类型</string>
@@ -72,4 +84,11 @@
     <string name="btn_accept">接受任务</string>
     <string name="btn_submit">提交任务</string>
     <!--orderDetail end -->
+
+    <!--invitationCodeFragment start-->
+    <string name="fragment_invitation_code">我的推荐码</string>
+    <string name="tv_invitation_code">推荐码：</string>
+    <string name="tv_invitation_earnings">累计收益：</string>
+    <string name="tv_invitation_count">已成功推荐(单位:/人):</string>
+    <!--invitationCodeFragment  end-->
 </resources>

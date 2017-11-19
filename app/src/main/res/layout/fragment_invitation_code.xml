@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/section_padding">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/section_padding"
+        android:src="@drawable/qr_code" />
+
+    <TextView
+        android:id="@+id/tv_invitation_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/section_padding"
+        android:text="@string/tv_invitation_code"
+        android:textColor="@color/colorSubtext"
+        android:textSize="@dimen/textsize_m" />
+
+    <TextView
+        android:id="@+id/tv_earnings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/section_padding"
+        android:text="@string/tv_invitation_earnings"
+        android:textColor="@color/colorSubtext"
+        android:textSize="@dimen/textsize_m" />
+
+    <TextView
+        android:id="@+id/tv_invitation_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/section_padding"
+        android:text="@string/tv_invitation_count"
+        android:textColor="@color/colorSubtext"
+        android:textSize="@dimen/textsize_m" />
+</LinearLayout>

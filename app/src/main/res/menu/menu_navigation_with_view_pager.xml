@@ -5,26 +5,26 @@
         android:id="@+id/action_settings"
         android:icon="@drawable/ic_menu_camera"
         android:orderInCategory="0"
-        android:title="@string/action_settings" />
+        android:title="@string/app_main_home" />
     <item
         android:id="@+id/action_upload"
         android:icon="@drawable/ic_menu_gallery"
         android:orderInCategory="1"
-        android:title="@string/menu_upload" />
+        android:title="@string/app_main_code" />
     <item
         android:id="@+id/action_download"
         android:icon="@drawable/ic_menu_send"
         android:orderInCategory="2"
-        android:title="@string/menu_download" />
-    <item
-        android:id="@+id/action_register"
-        android:icon="@drawable/ic_menu_share"
-        android:orderInCategory="3"
-        android:title="@string/menu_register" />
-    <item
-        android:id="@+id/action_login"
-        android:icon="@drawable/ic_menu_manage"
-        android:orderInCategory="4"
-        android:title="@string/menu_login" />
+        android:title="@string/app_main_prepaid" />
+    <!--<item-->
+    <!--android:id="@+id/action_register"-->
+    <!--android:icon="@drawable/ic_menu_share"-->
+    <!--android:orderInCategory="3"-->
+    <!--android:title="@string/menu_register" />-->
+    <!--<item-->
+    <!--android:id="@+id/action_login"-->
+    <!--android:icon="@drawable/ic_menu_manage"-->
+    <!--android:orderInCategory="4"-->
+    <!--android:title="@string/menu_login" />-->
 
 </menu>

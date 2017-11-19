@@ -1,6 +1,8 @@
 package com.sychan.shaka;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -17,6 +19,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lzy.imagepicker.ui.ImageGridActivity;
@@ -26,10 +29,14 @@ import com.sychan.shaka.app.ui.activity.NewTaskActivity;
 import com.sychan.shaka.app.ui.activity.RegisterActivity;
 import com.sychan.shaka.app.ui.activity.RetrieveActivity;
 import com.sychan.shaka.app.ui.activity.testActivity;
+import com.sychan.shaka.app.ui.fragment.InvitationcodeFragment;
 import com.sychan.shaka.app.ui.fragment.NewTestFragment;
+import com.sychan.shaka.app.ui.fragment.WindFragment;
 import com.sychan.shaka.app.ui.fragment.orderTakeFragment;
 import com.sychan.shaka.project.config.SimpleBackHelper;
 import com.sychan.shaka.project.config.SimpleBackPage;
+import com.sychan.shaka.support.utils.ToastUtil;
+import com.tencent.bugly.beta.Beta;
 import com.wx.base.app.ui.activity.BaseActivity;
 
 import java.io.File;
@@ -60,6 +67,8 @@ public class MainActivity extends BaseActivity
 
     private ActionBarDrawerToggle toggle;
     private int IMAGE_PICKER = 10086;
+    private TextView currentuser;
+    private TextView version;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +99,7 @@ public class MainActivity extends BaseActivity
         viewPager.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
             @Override
             public int getCount() {
-                return 5;
+                return 3;
             }
 
             @Override
@@ -99,12 +108,8 @@ public class MainActivity extends BaseActivity
                     case 0:
                         return new orderTakeFragment();
                     case 1:
-                        return new NewTestFragment();
+                        return new InvitationcodeFragment();
                     case 2:
-                        return new NewTestFragment();
-                    case 3:
-                        return new NewTestFragment();
-                    case 4:
                         return new NewTestFragment();
                     default:
                         return new orderTakeFragment();
@@ -131,6 +136,17 @@ public class MainActivity extends BaseActivity
                 SimpleBackHelper.showSimpleBack(mContext, SimpleBackPage.RELEASE_TASK);
             }
         });
+
+        //headerLayout
+//        View header = navigationView.inflateHeaderView(R.layout.nav_header_main);
+        View header = navigationView.getHeaderView(0);
+        currentuser = (TextView) header.findViewById(R.id.tv_current_user);
+        version = (TextView) header.findViewById(R.id.tv_version);
+        version.setText(getVersion());
+        BmobUser currentUser = BmobUser.getCurrentUser();
+        if (currentUser != null) {
+            currentuser.setText(currentUser.getUsername());
+        }
     }
 
 
@@ -147,7 +163,7 @@ public class MainActivity extends BaseActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is Contract.
-        getMenuInflater().inflate(R.menu.main, menu);
+//        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -173,31 +189,31 @@ public class MainActivity extends BaseActivity
             }
             return true;
         }
-        if (id == R.id.action_download) {
-            startActivity(new Intent(MainActivity.this, RetrieveActivity.class));
-        }
-        if (id == R.id.action_login) {
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
-        }
-        if (id == R.id.action_register) {
-            startActivity(new Intent(MainActivity.this, RegisterActivity.class));
-        }
-        if (id == R.id.action_upload) {
-            String picPath = "sdcard/image.jpg";
-            final BmobFile file = new BmobFile(new File(picPath));
-            file.upload(new UploadFileListener() {
-                @Override
-                public void done(BmobException e) {
-                    if (e == null) {
-                        Toast.makeText(MainActivity.this, "上传成功", Toast.LENGTH_SHORT)
-                                .show();
-                    } else {
-                        Toast.makeText(MainActivity.this, "上传失败", Toast.LENGTH_SHORT)
-                                .show();
-                    }
-                }
-            });
-        }
+//        if (id == R.id.action_download) {
+//            startActivity(new Intent(MainActivity.this, RetrieveActivity.class));
+//        }
+//        if (id == R.id.action_login) {
+//            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+//        }
+//        if (id == R.id.action_register) {
+//            startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+//        }
+//        if (id == R.id.action_upload) {
+//            String picPath = "sdcard/image.jpg";
+//            final BmobFile file = new BmobFile(new File(picPath));
+//            file.upload(new UploadFileListener() {
+//                @Override
+//                public void done(BmobException e) {
+//                    if (e == null) {
+//                        Toast.makeText(MainActivity.this, "上传成功", Toast.LENGTH_SHORT)
+//                                .show();
+//                    } else {
+//                        Toast.makeText(MainActivity.this, "上传失败", Toast.LENGTH_SHORT)
+//                                .show();
+//                    }
+//                }
+//            });
+//        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -207,23 +223,51 @@ public class MainActivity extends BaseActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            Intent intent = new Intent(this, ImageGridActivity.class);
-            startActivityForResult(intent, IMAGE_PICKER);
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-            startActivity(new Intent(this, testActivity.class));
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-            startActivity(new Intent(this, NewTaskActivity.class));
+        switch (id) {
+            case R.id.nav_manage:
+                ToastUtil.show("开发中...");
+                break;
+            case R.id.nav_update:
+                Beta.checkUpgrade(true, true);
+                break;
+            case R.id.nav_share:
+                ToastUtil.show("开发中...");
+                break;
+            case R.id.nav_send:
+                ToastUtil.show("开发中...");
+                break;
+            case R.id.nav_logout:
+                BmobUser.logOut();
+                BmobUser currentUser = BmobUser.getCurrentUser();
+                if (currentUser == null) {
+                    ToastUtil.show(getString(R.string.toast_success));
+                    App.getLoginActivity();
+                    startActivity(new Intent(MainActivity.this, LauncherActivity.class));
+                }
+                break;
+            case R.id.nav_power_off:
+                App.exit();
+                break;
+            default:
+                break;
         }
+
+//        if (id == R.id.nav_camera) {
+//            Intent intent = new Intent(this, ImageGridActivity.class);
+//            startActivityForResult(intent, IMAGE_PICKER);
+//            // Handle the camera action
+//        } else if (id == R.id.nav_gallery) {
+//            startActivity(new Intent(this, testActivity.class));
+//
+//        } else if (id == R.id.nav_slideshow) {
+//
+//        } else if (id == R.id.nav_manage) {
+//
+//        } else if (id == R.id.nav_share) {
+//
+//        } else if (id == R.id.nav_send) {
+//            startActivity(new Intent(this, NewTaskActivity.class));
+//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.END);
@@ -255,4 +299,21 @@ public class MainActivity extends BaseActivity
             return true;
         }
     };
+
+    /**
+     * 获取版本号
+     *
+     * @return 当前应用的版本号
+     */
+    public String getVersion() {
+        try {
+            PackageManager manager = this.getPackageManager();
+            PackageInfo info = manager.getPackageInfo(this.getPackageName(), 0);
+            String version = info.versionName;
+            return version;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
 }

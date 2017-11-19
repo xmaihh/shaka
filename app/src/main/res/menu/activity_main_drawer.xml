@@ -1,36 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="none">
+        <!--<item-->
+        <!--android:id="@+id/nav_camera"-->
+        <!--android:icon="@drawable/ic_menu_camera"-->
+        <!--android:title="Import" />-->
+        <!--<item-->
+        <!--android:id="@+id/nav_gallery"-->
+        <!--android:icon="@drawable/ic_menu_gallery"-->
+        <!--android:title="Gallery" />-->
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_update"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:title="@string/app_setting_update" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="@string/app_setting_tools" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title=" ">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="@string/app_setting_share" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="@string/app_setting_contact" />
         </menu>
+    </item>
+    <group android:checkableBehavior="none" />
+    <item android:title="">
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="@string/app_setting_logout" />
+        <item
+            android:id="@+id/nav_power_off"
+            android:icon="@drawable/ic_power_settings_new_black_24dp"
+            android:title="@string/app_setting_power_off" />
+
     </item>
 
 </menu>
