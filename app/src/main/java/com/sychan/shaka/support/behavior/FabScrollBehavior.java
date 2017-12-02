@@ -10,6 +10,7 @@ import android.view.animation.LinearInterpolator;
 
 /**
  * Created by sychan on 2017-11-08.
+ * FloatingActionButton用
  * Function：列表滑动时，fab上下移动的动画方式
  */
 public class FabScrollBehavior extends FloatingActionButton.Behavior {

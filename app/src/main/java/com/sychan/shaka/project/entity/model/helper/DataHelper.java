@@ -1,13 +1,9 @@
 package com.sychan.shaka.project.entity.model.helper;
 
 import android.util.Log;
-
-import com.orhanobut.logger.Logger;
 import com.sychan.shaka.project.entity.model.ReleaseTask;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
@@ -32,7 +28,7 @@ public class DataHelper {
                     items.addAll(list);
                     Log.d("521", "done:+++++ items" + items.size());
                 } else {
-                    Logger.i("fail：" + e.getMessage() + "," + e.getErrorCode());
+                    Log.i("521" , e.getMessage() + "," + e.getErrorCode());
                 }
             }
         });

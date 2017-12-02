@@ -1,6 +1,7 @@
 package com.sychan.shaka.app.ui.fragment;
 
-import com.orhanobut.logger.Logger;
+import android.util.Log;
+
 import com.sychan.shaka.R;
 import com.sychan.shaka.app.ui.adapter.orderTaskAdapter;
 import com.sychan.shaka.project.entity.model.ReleaseTask;
@@ -49,14 +50,14 @@ public class orderTakeFragment extends BaseRecyclerFragment {
     @Override
     protected void enableLoadMore() {
         super.enableLoadMore();
-        loadData();
-        pageStatePresenter.changeState(StateView.PageState.Loading);
+//        loadData();
+//        pageStatePresenter.changeState(StateView.PageState.Loading);
     }
 
     private void loadData() {
         BmobQuery<ReleaseTask> query = new BmobQuery<>();
-//        query.addWhereEqualTo("type", 100);
-        query.setLimit(100);
+//        query.addWhereEqualTo("ispublish", "true");
+        query.setLimit(50);
         query.findObjects(new FindListener<ReleaseTask>() {
             @Override
             public void done(List<ReleaseTask> list, BmobException e) {
@@ -65,7 +66,7 @@ public class orderTakeFragment extends BaseRecyclerFragment {
                     setSwipeRefresh(false);
                     pageStatePresenter.changeState(StateView.PageState.Content);
                 } else {
-                    Logger.i("fail：" + e.getMessage() + "," + e.getErrorCode());
+                    Log.d("521", e.getMessage() + "," + e.getErrorCode());
                 }
             }
         });

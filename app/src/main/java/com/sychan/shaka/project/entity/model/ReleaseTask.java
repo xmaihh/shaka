@@ -20,6 +20,7 @@ public class ReleaseTask extends BmobObject implements Parcelable {
     private String title;           //发布标题
     private User publisher;         //发布人
     private Boolean ispublish;      //允许发布
+    private Integer state;          //目前状态
     private Integer type;           //类型
     private Integer unitprice;      //单价
     private Integer raiseprice;     //加价
@@ -33,6 +34,7 @@ public class ReleaseTask extends BmobObject implements Parcelable {
     private Date deadline;          //截至时间
     private Date finishDate;        //完成时间
     private List<BmobFile> files;
+
 
     public String getTitle() {
         return title;
@@ -56,6 +58,14 @@ public class ReleaseTask extends BmobObject implements Parcelable {
 
     public void setIspublish(Boolean ispublish) {
         this.ispublish = ispublish;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 
     public Integer getType() {
@@ -106,20 +116,20 @@ public class ReleaseTask extends BmobObject implements Parcelable {
         this.publicaccounts = publicaccounts;
     }
 
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
     public String getVoter() {
         return voter;
     }
 
     public void setVoter(String voter) {
         this.voter = voter;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getRemark() {
@@ -162,7 +172,6 @@ public class ReleaseTask extends BmobObject implements Parcelable {
         this.files = files;
     }
 
-
     @Override
     public int describeContents() {
         return 0;
@@ -171,8 +180,9 @@ public class ReleaseTask extends BmobObject implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.title);
-        dest.writeSerializable(this.publisher);
+        dest.writeParcelable(this.publisher, flags);
         dest.writeValue(this.ispublish);
+        dest.writeValue(this.state);
         dest.writeValue(this.type);
         dest.writeValue(this.unitprice);
         dest.writeValue(this.raiseprice);
@@ -193,8 +203,9 @@ public class ReleaseTask extends BmobObject implements Parcelable {
 
     protected ReleaseTask(Parcel in) {
         this.title = in.readString();
-        this.publisher = (User) in.readSerializable();
+        this.publisher = in.readParcelable(User.class.getClassLoader());
         this.ispublish = (Boolean) in.readValue(Boolean.class.getClassLoader());
+        this.state = (Integer) in.readValue(Integer.class.getClassLoader());
         this.type = (Integer) in.readValue(Integer.class.getClassLoader());
         this.unitprice = (Integer) in.readValue(Integer.class.getClassLoader());
         this.raiseprice = (Integer) in.readValue(Integer.class.getClassLoader());

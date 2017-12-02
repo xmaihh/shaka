@@ -4,19 +4,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_title"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:text="登录账号"
             android:textSize="20sp" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,7 +52,7 @@
                 android:layout_height="match_parent" />
 
             <EditText
-                android:id="@+id/et_forgetPass_PhoneNum"
+                android:id="@+id/et_login_mobile_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -87,11 +93,12 @@
                 android:layout_height="match_parent" />
 
             <com.sychan.shaka.support.widget.TogglePasswordVisibilityEditText
-                android:id="@+id/et_passwd"
+                android:id="@+id/et_login_passwd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:background="@null"
+                android:drawableRight="@drawable/ic_visibility_off_black_24dp"
                 android:hint="请填入密码"
                 android:maxLength="16"
                 android:textSize="16sp" />
@@ -99,14 +106,14 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/but_forgetpass_toSetCodes"
+        android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:text="登录" />
 
     <TextView
-        android:id="@+id/text_regist"
+        android:id="@+id/tv_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"

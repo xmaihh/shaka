@@ -2,4 +2,7 @@
 <resources>
     <item name="order_task_entity" type="id" />
     <item name="order_task_positon" type="id" />
+
+    <item name="order_review_entity" type="id" />
+    <item name="order_review_position" type="id" />
 </resources>

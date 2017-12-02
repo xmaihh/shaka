@@ -26,10 +26,9 @@ android {
         applicationId "com.sychan.shaka"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 4
-        versionName "1.0.4"
+        versionCode 6
+        versionName "1.0.5"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
         // 兼容Android6.0系统所需，如果这句话报错，可在dependencies标签下使用compile 'cn.bmob.android:http-legacy:1.0'**
         useLibrary 'org.apache.http.legacy'
         ndk {
@@ -53,6 +52,13 @@ android {
         exclude 'META-INF/DEPENDENCIES' // will not include LICENSE file
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/maven/com.squareup.okhttp3/okhttp/pom.xml'
+        exclude 'META-INF/maven/com.squareup.okhttp3/okhttp/pom.properties'
+        exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
+        exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
+        exclude 'META-INF/maven/com.google.code.gson/gson/pom.xml'
+        exclude 'META-INF/maven/com.google.code.gson/gson/pom.properties'
 
     }
     repositories {
@@ -73,33 +79,20 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
-    compile 'com.android.support:design:26.0.0-alpha1'
-    compile 'com.android.support:cardview-v7:26.0.0-alpha1'
-    testCompile 'junit:junit:4.12'
     //Butterknife
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    //Logger
-    compile 'com.orhanobut:logger:2.1.1'
+    //noinspection GradleCompatible
+    compile 'com.android.support:cardview-v7:26.0.0-alpha1'
     //以下SDK开发者请根据需要自行选择
     //bmob-sdk：Bmob的android sdk包，包含了Bmob的数据存储、文件等服务，以下是最新的bmob-sdk:
-    //3.5.5：请务必查看下面注释[1]
-    compile('cn.bmob.android:bmob-sdk:3.5.5') {
+    //3.5.8：请务必查看下面注释[1]
+    compile('cn.bmob.android:bmob-sdk:3.5.8') {
         //解决Gson重复依赖问题，与passport-1.4.2.jar有冲突
         exclude module: 'gson'
-        exclude group: 'com.google.code.gson';
+        exclude group: 'com.google.code.gson'
     }
-    //bmob-push：Bmob的推送包
-    compile 'cn.bmob.android:bmob-push:0.8'
-    //bmob-im：Bmob的即时通讯包，注意每个版本的im依赖特定版本的bmob-sdk，具体的依赖关系可查看下面注释[2]
-    compile 'cn.bmob.android:bmob-im:2.0.5@aar'
-    compile('cn.bmob.android:bmob-sdk:3.4.7-aar')
-    //bmob-sms ：Bmob单独为短信服务提供的包
-    compile 'cn.bmob.android:bmob-sms:1.0.1'
-    //如果你想应用能够兼容Android6.0，请添加此依赖(org.apache.http.legacy.jar)
-    compile 'cn.bmob.android:http-legacy:1.0'
-
+//    compile 'cn.bmob.android:http-legacy:1.0'
     compile project(':base')
     //https://github.com/jeasonlzy/ImagePicker
     compile 'com.lzy.widget:imagepicker:0.6.1'
@@ -108,4 +101,9 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     //BRVAH:Powerful and flexible RecyclerAdapter http://www.recyclerview.org/
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+    //permissions4m
+    compile 'com.github.jokermonn:permissions4m:2.1.2-lib'
+    annotationProcessor 'com.github.jokermonn:permissions4m:2.1.2-processor'
+    //点击FAB弹出子菜单的特效
+    compile 'com.getbase:floatingactionbutton:1.10.1'
 }

@@ -1,5 +1,6 @@
 package com.sychan.shaka.support.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -13,13 +14,72 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 import java.io.RandomAccessFile;
+import java.util.Locale;
 import java.util.UUID;
 
 public class DeviceUtil {
     /**
+     * 获取当前手机系统语言。
+     *
+     * @return 返回当前系统语言。例如：当前设置的是“中文-中国”，则返回“zh-CN”
+     */
+    public static String getSystemLanguage() {
+        return Locale.getDefault().getLanguage();
+    }
+
+    /**
+     * 获取当前系统上的语言列表(Locale列表)
+     *
+     * @return 语言列表
+     */
+    public static Locale[] getSystemLanguageList() {
+        return Locale.getAvailableLocales();
+    }
+
+    /**
+     * 获取当前手机系统版本号
+     *
+     * @return 系统版本号
+     */
+    public static String getSystemVersion() {
+        return android.os.Build.VERSION.RELEASE;
+    }
+
+    /**
+     * 获取手机型号
+     *
+     * @return 手机型号
+     */
+    public static String getSystemModel() {
+        return android.os.Build.MODEL;
+    }
+
+    /**
+     * 获取手机厂商
+     *
+     * @return 手机厂商
+     */
+    public static String getDeviceBrand() {
+        return android.os.Build.BRAND;
+    }
+
+    /**
+     * 获取手机IMEI(需要“android.permission.READ_PHONE_STATE”权限)
+     *
+     * @return 手机IMEI
+     */
+    public static String getIMEI(Context ctx) {
+        TelephonyManager tm = (TelephonyManager) ctx.getSystemService(Activity.TELEPHONY_SERVICE);
+        if (tm != null) {
+            return tm.getDeviceId();
+        }
+        return null;
+    }
+
+    /**
      * 获取手机Mac地址
      */
-    public static String getMac(int a) {
+    public static String getMac() {
         String macSerial = null;
         String str = "";
 
@@ -114,10 +174,6 @@ public class DeviceUtil {
 
         }
 
-    }
-
-    public static String getIMEI(Context c) {
-        return ((TelephonyManager) c.getSystemService(c.TELEPHONY_SERVICE)).getDeviceId();
     }
 
     private static String sID = null;

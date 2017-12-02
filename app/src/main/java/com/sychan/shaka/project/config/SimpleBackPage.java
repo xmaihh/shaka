@@ -1,15 +1,21 @@
 package com.sychan.shaka.project.config;
 
 import com.sychan.shaka.R;
+import com.sychan.shaka.app.ui.fragment.FeedbackFragment;
 import com.sychan.shaka.app.ui.fragment.NewTestFragment;
+import com.sychan.shaka.app.ui.fragment.orderCompleteFragment;
 import com.sychan.shaka.app.ui.fragment.orderDetailFragment;
+import com.sychan.shaka.app.ui.fragment.orderReviewFragment;
 import com.sychan.shaka.app.ui.fragment.releaseTaskFragment;
 import com.wx.base.project.module.simpleback.SimpleBackManager;
 
 
 public enum SimpleBackPage {
     RELEASE_TASK(1, R.string.title_fragment_release_task, releaseTaskFragment.class),
-    ORDER_DETAIL(2, R.string.title_fragment_orderDetail, orderDetailFragment.class),;
+    ORDER_DETAIL(2, R.string.title_fragment_orderDetail, orderDetailFragment.class),
+    FEED_BACK(3, R.string.title_fragment_feed_back, FeedbackFragment.class),
+    ORDER_REVIEW(4, R.string.title_fragment_order_review, orderReviewFragment.class),
+    ORDER_COMPLETE(5, R.string.title_fragment_order_complete, orderCompleteFragment.class);
     private int title;
     private Class<?> clz;
     private int value;

@@ -41,7 +41,7 @@ public class WaterMarkFragment extends BaseFragment {
         sourBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.sour_pic);
         mSourImage.setImageBitmap(sourBitmap);
 
-        waterBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.weixin);
+        waterBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.logo50);
         mWartermarkImage.setImageBitmap(waterBitmap);
 
     }

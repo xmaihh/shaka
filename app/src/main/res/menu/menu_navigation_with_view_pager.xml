@@ -17,10 +17,10 @@
         android:orderInCategory="2"
         android:title="@string/app_main_prepaid" />
     <!--<item-->
-    <!--android:id="@+id/action_register"-->
-    <!--android:icon="@drawable/ic_menu_share"-->
-    <!--android:orderInCategory="3"-->
-    <!--android:title="@string/menu_register" />-->
+        <!--android:id="@+id/action_test"-->
+        <!--android:icon="@drawable/ic_menu_share"-->
+        <!--android:orderInCategory="3"-->
+        <!--android:title="@string/app_main_test" />-->
     <!--<item-->
     <!--android:id="@+id/action_login"-->
     <!--android:icon="@drawable/ic_menu_manage"-->

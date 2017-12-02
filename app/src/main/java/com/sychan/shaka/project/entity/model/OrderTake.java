@@ -15,20 +15,18 @@ import cn.bmob.v3.datatype.BmobFile;
  * Function：接单数据表
  */
 public class OrderTake extends BmobObject implements Parcelable {
-    private User user;              //接单人
-    private ReleaseTask task;       //任务
+    //接单人
+    private User user;
+    //任务
+    private ReleaseTask task;
+    //任务id
     private String taskId;
-    private List<BmobFile> files; //上传截图
-    private Date finishDate;        //完成时间
-
-
-    public String getTaskId() {
-        return taskId;
-    }
-
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
+    //上传截图
+    private List<BmobFile> files;
+    //完成时间
+    private Date finishDate;
+    //目前状态
+    private Integer state;
 
     public User getUser() {
         return user;
@@ -44,6 +42,14 @@ public class OrderTake extends BmobObject implements Parcelable {
 
     public void setTask(ReleaseTask task) {
         this.task = task;
+    }
+
+    public String getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
     }
 
     public List<BmobFile> getFiles() {
@@ -62,7 +68,12 @@ public class OrderTake extends BmobObject implements Parcelable {
         this.finishDate = finishDate;
     }
 
-    public OrderTake() {
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 
     @Override
@@ -77,6 +88,10 @@ public class OrderTake extends BmobObject implements Parcelable {
         dest.writeString(this.taskId);
         dest.writeList(this.files);
         dest.writeLong(this.finishDate != null ? this.finishDate.getTime() : -1);
+        dest.writeValue(this.state);
+    }
+
+    public OrderTake() {
     }
 
     protected OrderTake(Parcel in) {
@@ -87,6 +102,7 @@ public class OrderTake extends BmobObject implements Parcelable {
         in.readList(this.files, BmobFile.class.getClassLoader());
         long tmpFinishDate = in.readLong();
         this.finishDate = tmpFinishDate == -1 ? null : new Date(tmpFinishDate);
+        this.state = (Integer) in.readValue(Integer.class.getClassLoader());
     }
 
     public static final Creator<OrderTake> CREATOR = new Creator<OrderTake>() {

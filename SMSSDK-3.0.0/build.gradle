@@ -1,0 +1,2 @@
+configurations.maybeCreate("default")
+artifacts.add("default", file('SMSSDK-3.0.0.aar'))

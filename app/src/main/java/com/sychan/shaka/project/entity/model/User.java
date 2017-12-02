@@ -6,19 +6,19 @@ import android.os.Parcelable;
 import cn.bmob.v3.BmobUser;
 
 public class User extends BmobUser implements Parcelable {
-    private String name;
-    private String age;
-    private Integer gender;
-    private String phone;
-    private String wechat;
-    private String idcard;
-    private Integer codecount;
-    private String aapt;
-    private String invitecode;
-    private String superiorcode;
-    private Installation installation;
+    private String name;         //姓名
+    private String age;          //年龄
+    private Integer gender;      //性别
+    private String phone;        //电话
+    private String wechat;       //微信
+    private String idcard;       //身份
+    private Integer codecount;   //验证码
+    private String invitecode;    //邀请码
+    private String superiorcode;  //上家邀请码
+    private Paypel paypel;        //交易记录
     private String secret;
-    private Paypel paypel;
+    private String aapt;
+    private Installation installation;
 
 
     public String getName() {
@@ -77,14 +77,6 @@ public class User extends BmobUser implements Parcelable {
         this.codecount = codecount;
     }
 
-    public String getAapt() {
-        return aapt;
-    }
-
-    public void setAapt(String aapt) {
-        this.aapt = aapt;
-    }
-
     public String getInvitecode() {
         return invitecode;
     }
@@ -101,12 +93,12 @@ public class User extends BmobUser implements Parcelable {
         this.superiorcode = superiorcode;
     }
 
-    public Installation getInstallation() {
-        return installation;
+    public Paypel getPaypel() {
+        return paypel;
     }
 
-    public void setInstallation(Installation installation) {
-        this.installation = installation;
+    public void setPaypel(Paypel paypel) {
+        this.paypel = paypel;
     }
 
     public String getSecret() {
@@ -117,12 +109,20 @@ public class User extends BmobUser implements Parcelable {
         this.secret = secret;
     }
 
-    public Paypel getPaypel() {
-        return paypel;
+    public String getAapt() {
+        return aapt;
     }
 
-    public void setPaypel(Paypel paypel) {
-        this.paypel = paypel;
+    public void setAapt(String aapt) {
+        this.aapt = aapt;
+    }
+
+    public Installation getInstallation() {
+        return installation;
+    }
+
+    public void setInstallation(Installation installation) {
+        this.installation = installation;
     }
 
     @Override
@@ -139,12 +139,12 @@ public class User extends BmobUser implements Parcelable {
         dest.writeString(this.wechat);
         dest.writeString(this.idcard);
         dest.writeValue(this.codecount);
-        dest.writeString(this.aapt);
         dest.writeString(this.invitecode);
         dest.writeString(this.superiorcode);
-        dest.writeSerializable(this.installation);
-        dest.writeString(this.secret);
         dest.writeParcelable(this.paypel, flags);
+        dest.writeString(this.secret);
+        dest.writeString(this.aapt);
+        dest.writeSerializable(this.installation);
     }
 
     public User() {
@@ -158,12 +158,12 @@ public class User extends BmobUser implements Parcelable {
         this.wechat = in.readString();
         this.idcard = in.readString();
         this.codecount = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.aapt = in.readString();
         this.invitecode = in.readString();
         this.superiorcode = in.readString();
-        this.installation = (Installation) in.readSerializable();
-        this.secret = in.readString();
         this.paypel = in.readParcelable(Paypel.class.getClassLoader());
+        this.secret = in.readString();
+        this.aapt = in.readString();
+        this.installation = (Installation) in.readSerializable();
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {

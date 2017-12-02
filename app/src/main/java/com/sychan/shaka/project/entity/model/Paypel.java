@@ -10,18 +10,10 @@ import cn.bmob.v3.BmobObject;
  * Function：
  */
 public class Paypel extends BmobObject implements Parcelable {
-    private User user;
+
     private Integer earnings;
     private Integer totalearnings;
 
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public Integer getEarnings() {
         return earnings;
@@ -46,7 +38,6 @@ public class Paypel extends BmobObject implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeParcelable(this.user, flags);
         dest.writeValue(this.earnings);
         dest.writeValue(this.totalearnings);
     }
@@ -55,7 +46,6 @@ public class Paypel extends BmobObject implements Parcelable {
     }
 
     protected Paypel(Parcel in) {
-        this.user = in.readParcelable(User.class.getClassLoader());
         this.earnings = (Integer) in.readValue(Integer.class.getClassLoader());
         this.totalearnings = (Integer) in.readValue(Integer.class.getClassLoader());
     }

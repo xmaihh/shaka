@@ -17,6 +17,7 @@
     <string name="app_main_home">首页</string>
     <string name="app_main_code">邀请码</string>
     <string name="app_main_prepaid">充值</string>
+    <string name="app_main_test">测试</string>
     <string name="app_setting_contact">联系我</string>
     <string name="app_setting_share">分享</string>
     <string name="app_setting_tools">设置</string>
@@ -40,7 +41,7 @@
     <!--orserTake end-->
 
     <!--releaseTask start-->
-    <string name="title_fragment_release_task">新建任务</string>
+    <string name="title_fragment_release_task">新建的任务</string>
     <string name="rb_release_focus">关注</string>
     <string name="rb_release_pilot_vote">mp直投</string>
     <string name="rb_release_tpos_vote">第三方直投</string>
@@ -91,4 +92,16 @@
     <string name="tv_invitation_earnings">累计收益：</string>
     <string name="tv_invitation_count">已成功推荐(单位:/人):</string>
     <!--invitationCodeFragment  end-->
+
+    <!--feedbackFragment start-->
+    <string name="title_fragment_feed_back">联系我</string>
+    <string name="tv_feed_back">请填写10个字以上的问题描述以便我们提供更好的帮助</string>
+    <string name="tv_add_a_photo">＋ 添加截图</string>
+    <string name="btn_complete">完成</string>
+
+    <!--orderReviewFragment-->
+    <string name="title_fragment_order_review">进行中任务</string>
+
+    <!--orderCompleteFragment-->
+    <string name="title_fragment_order_complete">已完成任务</string>
 </resources>

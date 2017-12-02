@@ -33,6 +33,7 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
 }
 greendao {
     schemaVersion 1
@@ -45,49 +46,48 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
+    //noinspection GradleCompatible
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
     compile 'com.android.support:design:26.0.0-alpha1'
     compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
     testCompile 'junit:junit:4.12'
+
     // Appendix
+
     // Butter Knife - view injection
     provided 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    // OkHttp
-//    provided 'com.squareup.okhttp3:okhttp:3.4.2'
-//    provided 'com.squareup.okhttp3:logging-interceptor:3.4.2'
-//    provided 'com.squareup.okio:okio:1.9.0'
+
     // Retrofit - REST API to Java interface
+
     //compile 'com.squareup.retrofit:retrofit:1.9.0'
-    provided ('com.squareup.retrofit2:retrofit:2.1.0'){
+    provided('com.squareup.retrofit2:retrofit:2.1.0') {
         exclude group: 'com.squareup.okhttp3'
     }
     provided 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
-//    provided 'com.squareup.retrofit2:converter-gson:2.1.0'
-    // ActiveAndroid - active record style ORM
-    //compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
-    // Gson - convert Java Objects into their JSON representation
-//    provided 'com.google.code.gson:gson:2.8.0'
+
     // EventBus - simplifies communication between components
     compile 'org.greenrobot:eventbus:3.0.0'
-    // Ion - Android Asynchronous Networking and Image Loading
-//    compile 'com.koushikdutta.ion:ion:2.1.9'
+
     // Picasso - image downloading and caching library for Android
     compile 'com.squareup.picasso:picasso:2.5.2'
+
     //
     compile 'com.marshalchen.ultimaterecyclerview:library:0.7.0'
     compile 'org.greenrobot:greendao:3.2.0'
-//    compile 'io.reactivex:rxandroid:1.2.1'
-    // Because RxAndroid releases are few and far between, it is recommended you also
-    // explicitly depend on RxJava's latest version for bug fixes and new features.
-//    compile 'io.reactivex:rxjava:1.2.3'
     // Layout
     compile 'com.google.android:flexbox:0.2.5'
+
     // Debug
     compile 'com.facebook.stetho:stetho:1.4.1'
     compile 'com.facebook.stetho:stetho-okhttp3:1.4.1'
     compile 'com.facebook.stetho:stetho-js-rhino:1.4.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha9'
+
     //Autolayout
     compile 'com.zhy:autolayout:1.4.5'
+
+    //SMSSDK
+    compile project(':SMSSDK-3.0.0')
 }

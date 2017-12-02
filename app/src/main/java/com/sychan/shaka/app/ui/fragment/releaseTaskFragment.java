@@ -2,6 +2,7 @@ package com.sychan.shaka.app.ui.fragment;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.widget.GridLayoutManager;
@@ -31,6 +32,7 @@ import com.sychan.shaka.project.config.Constants;
 import com.sychan.shaka.project.config.orderType;
 import com.sychan.shaka.project.entity.model.ReleaseTask;
 import com.sychan.shaka.project.entity.model.User;
+import com.sychan.shaka.support.utils.ImageCompress;
 import com.sychan.shaka.support.utils.PreferenceUtils;
 import com.sychan.shaka.support.utils.ToastUtil;
 import com.sychan.shaka.support.utils.loadingUtil;
@@ -39,6 +41,10 @@ import com.sychan.shaka.support.widget.MultiRadioGroupAuto;
 import com.wx.base.app.ui.fragment.BaseFragment;
 import com.wx.base.support.utils.DisplayUtil;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -288,7 +294,6 @@ public class releaseTaskFragment extends BaseFragment implements
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_submit:
-                ToastUtil.show(" 11 2'34'55+");
                 mHandler.obtainMessage(SUBMIT_ORDER).sendToTarget();
                 lodingdialog.show();
                 btnSubmit.setEnabled(false);
@@ -312,7 +317,6 @@ public class releaseTaskFragment extends BaseFragment implements
             int currentType = PreferenceUtils.getPrefInt(mContext, CURRENT_TYPE, orderType.TP_FOCUS.getType());
             totalPrice = (currentType + (isVipchecked ? raisePrice : 0)) * amountCount;
             tvTotalPrice.setText(String.valueOf(totalPrice));
-            ToastUtil.show("checkBox:" + isChecked);
         }
     }
 
@@ -324,7 +328,6 @@ public class releaseTaskFragment extends BaseFragment implements
             int currentType = PreferenceUtils.getPrefInt(mContext, CURRENT_TYPE, orderType.TP_FOCUS.getType());
             totalPrice = (currentType + (isVipchecked ? raisePrice : 0)) * amountCount;
             tvTotalPrice.setText(String.valueOf(totalPrice));
-            ToastUtil.show("amount:" + amount);
         }
     }
 
@@ -357,7 +360,6 @@ public class releaseTaskFragment extends BaseFragment implements
                 if (data != null && requestCode == REQUEST_CODE_SELECT) {
                     images = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_RESULT_ITEMS);
                     if (images != null) {
-                        Log.d("521", "images: 数量" + images.size());
                         selImageList.addAll(images);
                         adapter.setImages(selImageList);
                     }
@@ -435,64 +437,97 @@ public class releaseTaskFragment extends BaseFragment implements
             public void run() {
                 final String[] filePaths = new String[selImageList.size()];
                 for (int i = 0; i < selImageList.size(); i++) {
-                    filePaths[i] = selImageList.get(i).path;
-                }
-                BmobFile.uploadBatch(filePaths, new UploadBatchListener() {
-                    @Override
-                    public void onSuccess(List<BmobFile> files, List<String> urls) {
-                        //1、files-上传完成后的BmobFile集合，是为了方便大家对其上传后的数据进行操作，例如你可以将该文件保存到表中
-                        //2、urls-上传文件的完整url地址
-                        if (urls.size() == filePaths.length) {//如果数量相等，则代表文件全部上传完成java.util.Calendar cal=java.util.Calendar.getInstance();
-                            ReleaseTask task = new ReleaseTask();
-                            task.setPublisher(BmobUser.getCurrentUser(User.class));
-                            int type = PreferenceUtils.getPrefInt(mContext, CURRENT_TYPE, orderType.TP_FOCUS.getType());
-                            task.setType(type);
-                            task.setUnitprice(type);
-                            task.setRaiseprice(Constants.raisePrice);
-                            task.setCount(amountCount);
-                            task.setTotalprice(totalPrice);
-                            task.setPublicaccounts(editDskbdhz.getText().toString());
-                            task.setVoter(editVoter.getText().toString());
-                            task.setUrl(editLink.getText().toString());
-                            task.setRemark(editRemark.getText().toString());
-                            task.setFiles(files);
-                            task.setCreatedat(new Date());
-                            java.util.Calendar cal = java.util.Calendar.getInstance();
-                            cal.setTime(new Date());
-                            cal.add(Calendar.DATE, 1);
-                            task.setDeadline(cal.getTime());
-                            task.save(new SaveListener<String>() {
+                    long newName = System.currentTimeMillis();
+                    String filePath = selImageList.get(i).path;
+                    if (over1M(filePath)) {
+                        String targePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "/shaka/" + newName + ".jpg";
+                        filePaths[i] = ImageCompress.compressImage(filePath, targePath, 30);
+                    } else {
+                        filePaths[i] = selImageList.get(i).path;
+                    }
+                    BmobFile.uploadBatch(filePaths, new UploadBatchListener() {
                                 @Override
-                                public void done(String s, BmobException e) {
-                                    if (e == null) {
-                                        mHandler.obtainMessage(CLOSING_DEAL).sendToTarget();
-                                        ToastUtil.show(getString(R.string.toast_success));
-                                        finish();
-                                    } else {
-                                        ToastUtil.show(getString(R.string.toast_error_describe) + e.getMessage() + "," + e.getErrorCode());
+                                public void onSuccess(List<BmobFile> files, List<String> urls) {
+                                    //1、files-上传完成后的BmobFile集合，是为了方便大家对其上传后的数据进行操作，例如你可以将该文件保存到表中
+                                    //2、urls-上传文件的完整url地址
+                                    if (urls.size() == filePaths.length) {//如果数量相等，则代表文件全部上传完成java.util.Calendar cal=java.util.Calendar.getInstance();
+                                        ReleaseTask task = new ReleaseTask();
+                                        task.setPublisher(BmobUser.getCurrentUser(User.class));
+                                        int type = PreferenceUtils.getPrefInt(mContext, CURRENT_TYPE, orderType.TP_FOCUS.getType());
+                                        task.setType(type);
+                                        task.setUnitprice(type);
+                                        task.setRaiseprice(Constants.raisePrice);
+                                        task.setCount(amountCount);
+                                        task.setTotalprice(totalPrice);
+                                        task.setPublicaccounts(editDskbdhz.getText().toString());
+                                        task.setVoter(editVoter.getText().toString());
+                                        task.setUrl(editLink.getText().toString());
+                                        task.setRemark(editRemark.getText().toString());
+                                        task.setFiles(files);
+                                        task.setCreatedat(new Date());
+                                        java.util.Calendar cal = java.util.Calendar.getInstance();
+                                        cal.setTime(new Date());
+                                        cal.add(Calendar.DATE, 1);
+                                        task.setDeadline(cal.getTime());
+                                        task.save(new SaveListener<String>() {
+                                            @Override
+                                            public void done(String s, BmobException e) {
+                                                if (e == null) {
+                                                    ToastUtil.show(getString(R.string.toast_success));
+                                                    finish();
+                                                } else {
+                                                    Log.d(TAG, "error: " + e.getErrorCode() + e.getMessage());
+                                                    ToastUtil.show(getString(R.string.toast_error_describe) + e.getMessage() + "," + e.getErrorCode());
+                                                }
+                                                mHandler.obtainMessage(CLOSING_DEAL).sendToTarget();
+                                            }
+                                        });
                                     }
                                 }
-                            });
-                        }
-                    }
 
-                    @Override
-                    public void onProgress(int curIndex, int curPercent, int total,
-                                           int totalPercent) {
-                        //1、curIndex--表示当前第几个文件正在上传
-                        //2、curPercent--表示当前上传文件的进度值（百分比）
-                        //3、total--表示总的上传文件数
-                        //4、totalPercent--表示总的上传进度（百分比）
-                    }
+                                @Override
+                                public void onProgress(int curIndex, int curPercent, int total,
+                                                       int totalPercent) {
+                                    ToastUtil.show("正在上传第"+curIndex+"个文件");
+                                    //1、curIndex--表示当前第几个文件正在上传
+                                    //2、curPercent--表示当前上传文件的进度值（百分比）
+                                    //3、total--表示总的上传文件数
+                                    //4、totalPercent--表示总的上传进度（百分比）
+                                }
 
-                    @Override
-                    public void onError(int statuscode, String errormsg) {
-                        ToastUtil.show(getString(R.string.toast_error_code) + statuscode + "," + getString(R.string.toast_error_describe) + errormsg);
-                    }
-                });
-
+                                @Override
+                                public void onError(int statuscode, String errormsg) {
+                                    ToastUtil.show(getString(R.string.toast_error_code) + statuscode + "," + getString(R.string.toast_error_describe) + errormsg);
+                                }
+                            }
+                    );
+                }
             }
         });
+    }
+
+    /**
+     * 判断图片大小是否大于1M
+     *
+     * @param filePath
+     * @return
+     */
+    private boolean over1M(String filePath) {
+
+        File dF = new File(filePath);
+        FileInputStream fis;
+        int fileLen = 0;
+        try {
+            fis = new FileInputStream(dF);
+            fileLen = fis.available(); //这就是文件大小
+            Log.d("521", filePath + "\n " + fileLen);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return (fileLen - 1024 * 1000) > 0;
+
     }
 
     @Override

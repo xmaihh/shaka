@@ -1,6 +1,5 @@
 package com.sychan.shaka.project.present;
 
-import com.orhanobut.logger.Logger;
 import com.sychan.shaka.project.api.QueryApi;
 import com.sychan.shaka.project.entity.model.ReleaseTask;
 
@@ -48,7 +47,6 @@ public class AllTaskPresenter implements Contract.Presenter {
 
         @Override
         public void onError(Throwable throwable) {
-            Logger.i(throwable.getMessage().toString());
             view.loadonError();
         }
 

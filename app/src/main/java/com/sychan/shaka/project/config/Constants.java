@@ -3,6 +3,8 @@ package com.sychan.shaka.project.config;
 public class Constants {
     public static final String BMOB_SDK = "7d152f76660474edee4fc4a1bcf2911e";
     public static final String BUGLY_SDK = "803534fc5e";
+    public static final String SMSSDK_APPKEY = "22af54cfb2ecd";
+    public static final String SMSSDK_APPSECRET = "a5873578089b00b107a0f842b94fefee";
     //图片选择器
     public static final int IMAGE_ITEM_ADD = -1;
     public static final int REQUEST_CODE_SELECT = 100;
@@ -21,4 +23,8 @@ public class Constants {
     public static final int LOADING_IMAGE = 1008600;
     public static final int DOWNLOAD_IMAGE = 1008602;
     public static final int SUBMIT_IT_NOW = 1008601;
+
+    //Register、Login
+    public static final String Bundle_User = "name";
+    public static final String Bundle_Data = "data";
 }

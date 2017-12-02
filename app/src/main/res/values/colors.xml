@@ -10,4 +10,7 @@
     <color name="colorIcons">#FFFFFF</color>
     <color name="colorLine">#BDBDBD</color>
     <color name="colorBlock">#FFE0E0E0</color>
+
+    <color name="black_semi_transparent">#B2000000</color>
+    <color name="text">#FFFFFF</color>
 </resources>

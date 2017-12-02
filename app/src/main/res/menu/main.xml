@@ -6,25 +6,25 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/action_upload"
-        android:orderInCategory="100"
-        android:title="@string/menu_upload"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_download"
-        android:orderInCategory="100"
-        android:title="@string/menu_download"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_register"
-        android:orderInCategory="100"
-        android:title="@string/menu_register"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_login"
-        android:orderInCategory="100"
-        android:title="@string/menu_login"
-        app:showAsAction="never" />
+    <!--<item-->
+        <!--android:id="@+id/action_upload"-->
+        <!--android:orderInCategory="100"-->
+        <!--android:title="@string/menu_upload"-->
+        <!--app:showAsAction="never" />-->
+    <!--<item-->
+        <!--android:id="@+id/action_download"-->
+        <!--android:orderInCategory="100"-->
+        <!--android:title="@string/menu_download"-->
+        <!--app:showAsAction="never" />-->
+    <!--<item-->
+        <!--android:id="@+id/action_register"-->
+        <!--android:orderInCategory="100"-->
+        <!--android:title="@string/menu_register"-->
+        <!--app:showAsAction="never" />-->
+    <!--<item-->
+        <!--android:id="@+id/action_login"-->
+        <!--android:orderInCategory="100"-->
+        <!--android:title="@string/menu_login"-->
+        <!--app:showAsAction="never" />-->
 
 </menu>

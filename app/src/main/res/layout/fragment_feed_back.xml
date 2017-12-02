@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/et_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:layout_marginRight="@dimen/section_padding"
+            android:layout_marginTop="@dimen/section_padding"
+            android:gravity="top|start"
+            android:hint="@string/tv_feed_back"
+            android:minLines="5" />
+
+
+        <FrameLayout
+            android:id="@+id/fl_selectImage"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:layout_marginRight="@dimen/section_padding"
+            android:layout_marginTop="@dimen/section_padding"
+            android:background="@color/grey"
+            android:clickable="true">
+
+            <ImageView
+                android:id="@+id/iv_selectedImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:scaleType="centerCrop" />
+
+            <LinearLayout
+                android:id="@+id/ll_selectContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/tv_add_a_photo"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_insert_photo_black_24dp" />
+
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_info_legal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/section_padding"
+            android:layout_marginRight="@dimen/section_padding"
+            android:text=""
+            android:layout_marginTop="@dimen/section_padding" />
+
+        <Button
+            android:id="@+id/btn_submit_suggestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/section_padding"
+            android:text="@string/btn_complete" />
+
+    </LinearLayout>
+</ScrollView>

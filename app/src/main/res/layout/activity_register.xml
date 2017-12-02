@@ -46,7 +46,7 @@
                 android:layout_height="match_parent" />
 
             <EditText
-                android:id="@+id/et_forgetPass_PhoneNum"
+                android:id="@+id/et_mobile_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -73,17 +73,51 @@
             android:layout_height="40dp">
 
             <EditText
-                android:id="@+id/et_phoneCodes"
+                android:id="@+id/et_smsCodes"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@null"
+                android:hint="请输入短信验证码" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_smsCode"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="获取验证码"
+            android:textColor="#E53935" />
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp">
+
+            <EditText
+                android:id="@+id/et_verify_code"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:background="@null"
                 android:hint="请输入右侧验证码" />
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/iv_showCode"
+            android:id="@+id/iv_show_verify_code"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp" />
@@ -118,19 +152,59 @@
                 android:layout_height="match_parent" />
 
             <com.sychan.shaka.support.widget.TogglePasswordVisibilityEditText
-                android:id="@+id/et_passwd"
+                android:id="@+id/toget_passwd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:background="@null"
-                android:maxLength="16"
+                android:drawableRight="@drawable/ic_visibility_off_black_24dp"
                 android:hint="设置登入密码"
+                android:maxLength="16"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="邀请码"
+                android:textColor="#A2CD5A"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="0.1dp"
+                android:layout_height="match_parent" />
+
+            <EditText
+                android:id="@+id/et_invite_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="@null"
+                android:hint="请输入邀请码,(可选填)"
+                android:maxLength="16"
                 android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
 
     <Button
-        android:id="@+id/but_forgetpass_toSetCodes"
+        android:id="@+id/btn_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"

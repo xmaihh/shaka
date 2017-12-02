@@ -5,10 +5,10 @@ import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
 import com.facebook.stetho.Stetho;
+import com.mob.MobApplication;
 import com.zhy.autolayout.config.AutoLayoutConifg;
 
 import java.util.Stack;
-import java.util.logging.Logger;
 
 /**
  * Created by alex on 16-11-15.
@@ -30,7 +30,7 @@ public class BaseApplication extends MultiDexApplication {
 
     public static void finishActivity() {
         if (activities != null) {
-            Log.d("521", "finishActivity: "+activities.size());
+            Log.d("521", "finishActivity: " + activities.size());
             activities.pop().finish();
         }
     }

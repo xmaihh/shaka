@@ -2,8 +2,8 @@ package com.sychan.shaka;
 
 import android.content.Context;
 
-import com.orhanobut.logger.AndroidLogAdapter;
-import com.orhanobut.logger.Logger;
+import com.mob.MobSDK;
+
 import com.sychan.shaka.project.config.Constants;
 import com.sychan.shaka.project.config.SimpleBackPage;
 import com.sychan.shaka.support.utils.ImagePickerUtil;
@@ -12,6 +12,10 @@ import com.wx.base.app.BaseApplication;
 
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobConfig;
+
+import static cn.bmob.v3.Bmob.getApplicationContext;
+import static com.sychan.shaka.project.config.Constants.SMSSDK_APPKEY;
+import static com.sychan.shaka.project.config.Constants.SMSSDK_APPSECRET;
 /*
                    _ooOoo_
                   o8888888o
@@ -47,12 +51,12 @@ public class App extends BaseApplication {
         // 使用时请将第二个参数Application ID替换成你在Bmob服务器端创建的Application ID
         Bmob.initialize(this, Constants.BMOB_SDK);
 
+        // 初始化SMSSDk
+        MobSDK.init(this, SMSSDK_APPKEY, SMSSDK_APPSECRET);
+
         //TX Crash收集
-//        CrashReport.initCrashReport(getApplicationContext(), "803534fc5e", true);
         Bugly.init(getApplicationContext(), Constants.BUGLY_SDK, false);
 
-        //Logger 日志收集
-        Logger.addLogAdapter(new AndroidLogAdapter());
         //配置图片选择器
         ImagePickerUtil.ImagePickerIntance();
 

@@ -6,7 +6,9 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.FloatingActionButton;
+
+import com.getbase.floatingactionbutton.FloatingActionButton;
+
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -15,6 +17,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,16 +25,12 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.lzy.imagepicker.ui.ImageGridActivity;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.sychan.shaka.app.ui.activity.LauncherActivity;
-import com.sychan.shaka.app.ui.activity.LoginActivity;
-import com.sychan.shaka.app.ui.activity.NewTaskActivity;
-import com.sychan.shaka.app.ui.activity.RegisterActivity;
-import com.sychan.shaka.app.ui.activity.RetrieveActivity;
 import com.sychan.shaka.app.ui.activity.testActivity;
 import com.sychan.shaka.app.ui.fragment.InvitationcodeFragment;
 import com.sychan.shaka.app.ui.fragment.NewTestFragment;
-import com.sychan.shaka.app.ui.fragment.WindFragment;
+import com.sychan.shaka.app.ui.fragment.WaterMarkFragment;
 import com.sychan.shaka.app.ui.fragment.orderTakeFragment;
 import com.sychan.shaka.project.config.SimpleBackHelper;
 import com.sychan.shaka.project.config.SimpleBackPage;
@@ -39,14 +38,10 @@ import com.sychan.shaka.support.utils.ToastUtil;
 import com.tencent.bugly.beta.Beta;
 import com.wx.base.app.ui.activity.BaseActivity;
 
-import java.io.File;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import cn.bmob.v3.BmobUser;
-import cn.bmob.v3.datatype.BmobFile;
-import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.UploadFileListener;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -56,8 +51,16 @@ public class MainActivity extends BaseActivity
     Toolbar toolbar;
     @BindView(R.id.viewpager)
     ViewPager viewPager;
-    @BindView(R.id.fab)
-    FloatingActionButton fab;
+    //    @BindView(R.id.fab)
+//    FloatingActionButton fab;
+    @BindView(R.id.fab_1)
+    FloatingActionButton fab1;
+    @BindView(R.id.fab_2)
+    FloatingActionButton fab2;
+    @BindView(R.id.fab_3)
+    FloatingActionButton fab3;
+    @BindView(R.id.fab_menu)
+    FloatingActionsMenu fabMenu;
     @BindView(R.id.bottom_navigation)
     BottomNavigationView bottomnavigationView;
     @BindView(R.id.nav_view)
@@ -111,6 +114,8 @@ public class MainActivity extends BaseActivity
                         return new InvitationcodeFragment();
                     case 2:
                         return new NewTestFragment();
+//                    case 3:
+//                        return new WaterMarkFragment();
                     default:
                         return new orderTakeFragment();
                 }
@@ -130,15 +135,16 @@ public class MainActivity extends BaseActivity
                 }
             }
         });
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SimpleBackHelper.showSimpleBack(mContext, SimpleBackPage.RELEASE_TASK);
-            }
-        });
+        // TODO: 2017-11-30 20:30 
+//        fab.setOnClickListener(new View.OnClickListener() {  
+//            @Override
+//            public void onClick(View view) {
+//                SimpleBackHelper.showSimpleBack(mContext, SimpleBackPage.RELEASE_TASK);
+//            }
+//        });
 
         //headerLayout
-//        View header = navigationView.inflateHeaderView(R.layout.nav_header_main);
+//        View header = navigationView.inflateHeaderView(R.activity_layout_test.nav_header_main);
         View header = navigationView.getHeaderView(0);
         currentuser = (TextView) header.findViewById(R.id.tv_current_user);
         version = (TextView) header.findViewById(R.id.tv_version);
@@ -179,42 +185,10 @@ public class MainActivity extends BaseActivity
         }
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            BmobUser.logOut();
-            BmobUser currentUser = BmobUser.getCurrentUser();
-            if (currentUser == null) {
-                Toast.makeText(MainActivity.this, "登出成功", Toast.LENGTH_SHORT)
-                        .show();
-                App.getLoginActivity();
-                startActivity(new Intent(MainActivity.this, LauncherActivity.class));
-            }
+            fabMenu.setVisibility(View.GONE);
+            ToastUtil.show("11");
             return true;
         }
-//        if (id == R.id.action_download) {
-//            startActivity(new Intent(MainActivity.this, RetrieveActivity.class));
-//        }
-//        if (id == R.id.action_login) {
-//            startActivity(new Intent(MainActivity.this, LoginActivity.class));
-//        }
-//        if (id == R.id.action_register) {
-//            startActivity(new Intent(MainActivity.this, RegisterActivity.class));
-//        }
-//        if (id == R.id.action_upload) {
-//            String picPath = "sdcard/image.jpg";
-//            final BmobFile file = new BmobFile(new File(picPath));
-//            file.upload(new UploadFileListener() {
-//                @Override
-//                public void done(BmobException e) {
-//                    if (e == null) {
-//                        Toast.makeText(MainActivity.this, "上传成功", Toast.LENGTH_SHORT)
-//                                .show();
-//                    } else {
-//                        Toast.makeText(MainActivity.this, "上传失败", Toast.LENGTH_SHORT)
-//                                .show();
-//                    }
-//                }
-//            });
-//        }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -225,6 +199,7 @@ public class MainActivity extends BaseActivity
         int id = item.getItemId();
         switch (id) {
             case R.id.nav_manage:
+                startActivity(new Intent(this, testActivity.class));
                 ToastUtil.show("开发中...");
                 break;
             case R.id.nav_update:
@@ -234,7 +209,7 @@ public class MainActivity extends BaseActivity
                 ToastUtil.show("开发中...");
                 break;
             case R.id.nav_send:
-                ToastUtil.show("开发中...");
+                SimpleBackHelper.showSimpleBack(mContext, SimpleBackPage.FEED_BACK);
                 break;
             case R.id.nav_logout:
                 BmobUser.logOut();
@@ -282,6 +257,10 @@ public class MainActivity extends BaseActivity
 
     @Override
     public void onPageSelected(int position) {
+        fabMenu.setVisibility(position == 0 ? View.VISIBLE : View.GONE);
+        if (position != 0 && fabMenu.isExpanded()) {
+            fabMenu.collapse();
+        }
         //页面滑动的时候，设置BottomNavigationView的Item选中高亮
         bottomnavigationView.getMenu().getItem(position).setChecked(true);
     }
@@ -295,6 +274,10 @@ public class MainActivity extends BaseActivity
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            fabMenu.setVisibility(item.getOrder() == 0 ? View.VISIBLE : View.GONE);
+            if (item.getOrder() != 0 && fabMenu.isExpanded()) {
+                fabMenu.collapse();
+            }
             viewPager.setCurrentItem(item.getOrder());
             return true;
         }
@@ -314,6 +297,21 @@ public class MainActivity extends BaseActivity
         } catch (Exception e) {
             e.printStackTrace();
             return "";
+        }
+    }
+
+    @OnClick({R.id.fab_1, R.id.fab_2, R.id.fab_3})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.fab_1:
+                SimpleBackHelper.showSimpleBack(mContext, SimpleBackPage.ORDER_COMPLETE);
+                break;
+            case R.id.fab_2:
+                SimpleBackHelper.showSimpleBack(mContext, SimpleBackPage.ORDER_REVIEW);
+                break;
+            case R.id.fab_3:
+                SimpleBackHelper.showSimpleBack(mContext, SimpleBackPage.RELEASE_TASK);
+                break;
         }
     }
 }

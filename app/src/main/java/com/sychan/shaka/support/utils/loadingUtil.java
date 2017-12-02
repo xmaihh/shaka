@@ -15,6 +15,13 @@ public class loadingUtil extends AlertDialog {
 
     private Context mContext;
 
+    public loadingUtil(@NonNull Context context) {
+        super(context, R.style.progress_dialog_style);
+        setCanceledOnTouchOutside(false);
+        setCancelable(false);
+        mContext = context;
+    }
+
     public loadingUtil(@NonNull Context context, @StyleRes int themeResId) {
         super(context, themeResId);
         setCanceledOnTouchOutside(false);

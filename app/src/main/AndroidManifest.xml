@@ -28,12 +28,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".app.ui.activity.LoginActivity" />
         <activity android:name=".app.ui.activity.RegisterActivity" />
-        <activity android:name=".app.ui.activity.RetrieveActivity" />
-        <activity
-            android:name=".app.ui.activity.NewTaskActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".app.ui.activity.testActivity" />
 
+        <activity android:name=".app.ui.activity.testActivity" />
 
         <!--Autolayout start-->
         <meta-data
@@ -43,6 +39,15 @@
             android:name="design_height"
             android:value="1920"></meta-data>
         <!--Autolayout end-->
+
+        <!--SMSSDK start-->
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!--SMSSDK end-->
+
     </application>
 
     <!--允许联网 -->
@@ -59,5 +64,10 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
 
 </manifest>

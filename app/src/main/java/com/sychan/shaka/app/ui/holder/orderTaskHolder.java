@@ -37,9 +37,9 @@ public class orderTaskHolder extends BaseHolder<ReleaseTask>
     CardView cardMain11;
 
     public static orderTaskHolder newInstance(ViewGroup parent, BaseRecyclerViewAdapter.OnItemClickListener<ReleaseTask> listener) {
-        View itemView = LayoutInflater.from(parent.getContext())
+        View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_rv_order_take, parent, false);
-        return new orderTaskHolder(itemView, listener);
+        return new orderTaskHolder(v, listener);
     }
 
     public orderTaskHolder(View itemView, BaseRecyclerViewAdapter.OnItemClickListener<ReleaseTask> listener) {
@@ -59,6 +59,11 @@ public class orderTaskHolder extends BaseHolder<ReleaseTask>
         itemView.setOnLongClickListener(this);
         itemView.setTag(R.id.order_task_entity, entity);
         itemView.setTag(R.id.order_task_positon, position);
+
+        btnTakeItNow.setOnClickListener(this);
+        btnTakeItNow.setOnLongClickListener(this);
+        btnTakeItNow.setTag(R.id.order_task_entity, entity);
+        btnTakeItNow.setTag(R.id.order_task_positon, position);
 
         return super.bindViewHolder(entity, position);
     }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -33,10 +34,58 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_margin"
+        android:visibility="gone"
         app:elevation="4dp"
         app:fabSize="normal"
         app:layout_behavior="com.sychan.shaka.support.behavior.FabScrollBehavior"
         app:srcCompat="@android:drawable/ic_menu_edit" />
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/fab_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_navigation"
+        android:layout_gravity="end|bottom"
+        android:layout_marginBottom="56dp"
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:visibility="visible"
+        app:elevation="4dp"
+        app:fabSize="normal"
+        app:layout_behavior="com.sychan.shaka.support.behavior.ScrollAwareFABBehavior"
+        fab:fab_addButtonColorNormal="@color/colorAccent"
+        fab:fab_icon="@drawable/ic_add_black_24dp"
+        fab:fab_labelStyle="@style/menu_labels_style"
+        fab:fab_labelsPosition="left">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/colorAccent"
+            fab:fab_icon="@drawable/ic_assignment_turned_in_black_24dp"
+            fab:fab_size="mini"
+            fab:fab_title="@string/title_fragment_order_complete" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/colorAccent"
+            fab:fab_icon="@drawable/ic_assignment_late_black_24dp"
+            fab:fab_size="mini"
+            fab:fab_title="@string/title_fragment_order_review" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/colorAccent"
+            fab:fab_icon="@drawable/ic_assignment_black_24dp"
+            fab:fab_size="mini"
+            fab:fab_title="@string/title_fragment_release_task" />
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation"

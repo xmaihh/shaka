@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolbar_height"
         android:background="@drawable/bg_tabbar"
+        app:tabGravity="fill"
+        app:tabMode="fixed"
         app:tabSelectedTextColor="@color/colorPrimary"
         app:tabTextAppearance="@style/WX.TextAppearance.Design.Tab"
-        app:tabTextColor="@color/grey_500"
-        app:tabGravity="fill"
-        app:tabMode="fixed"/>
+        app:tabTextColor="@color/grey_500" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/theme_window_background"/>
+        android:background="@color/theme_window_background" />
+
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
-    <include
-        layout="@layout/wx_smartbar"/>
+    <include layout="@layout/wx_smartbar" />
 </LinearLayout>

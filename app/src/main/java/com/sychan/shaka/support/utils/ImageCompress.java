@@ -34,7 +34,7 @@ public class ImageCompress {
         try {
             if (!outputFile.exists()) {
                 outputFile.getParentFile().mkdirs();
-                //outputFile.createNewFile();
+//                outputFile.createNewFile();
             } else {
                 outputFile.delete();
             }

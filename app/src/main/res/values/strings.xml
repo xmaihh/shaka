@@ -80,4 +80,9 @@
     <string name="tv_invitation_code">invitation code:</string>
     <string name="tv_invitation_earnings">invitation earnings:</string>
     <string name="tv_invitation_count">invitation count:</string>
+    <string name="title_fragment_feed_back">contact me</string>
+    <string name="tv_feed_back">write your feedback</string>
+    <string name="tv_add_a_photo">＋add screenshot</string>
+    <string name="btn_complete">complete</string>
+    <string name="app_main_test">test</string>
 </resources>

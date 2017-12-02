@@ -13,7 +13,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
-import com.orhanobut.logger.Logger;
 
 /**
  * Created by sychan on 2017-11-14.
@@ -90,8 +89,6 @@ public class LineCircle extends View {
             } else {
                 this.stopAngle = (360-Math.abs(maxTemp)*2);
                 this.startAngle = stopAngle - 60;
-                Logger.d(startAngle);
-                Logger.d(stopAngle);
             }
         } else if ((minTemp<0&&minTemp>=-50) && (maxTemp>0&&maxTemp<=50)) {
             //当最低温度小于0，最高温度大于0时

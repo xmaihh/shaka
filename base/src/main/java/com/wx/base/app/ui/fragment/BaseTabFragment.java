@@ -16,7 +16,7 @@ import java.util.List;
  * Created by alex on 16-12-8.
  */
 
-public abstract class BaseTabFragment extends BaseFragment{
+public abstract class BaseTabFragment extends BaseFragment {
 
     protected TabLayout tabLayout;
     protected ViewPager viewPager;
@@ -30,15 +30,15 @@ public abstract class BaseTabFragment extends BaseFragment{
 
     @Override
     @CallSuper
-    protected void bindViews(View view){
+    protected void bindViews(View view) {
         super.bindViews(view);
-        tabLayout = (TabLayout)view.findViewById(R.id.tab_layout);
-        viewPager = (ViewPager)view.findViewById(R.id.viewpager);
+        tabLayout = (TabLayout) view.findViewById(R.id.tab_layout);
+        viewPager = (ViewPager) view.findViewById(R.id.viewpager);
 
     }
 
     @Override
-    protected void setup(){
+    protected void setup() {
         //FragmentAdapter
         adapter = new CustomPagerAdapter(getChildFragmentManager());
 
@@ -48,11 +48,11 @@ public abstract class BaseTabFragment extends BaseFragment{
         //tabsStrip.setViewPager(viewPager);
     }
 
-    protected void updateViewPager(List<ResourceMap> maps){
+    protected void updateViewPager(List<ResourceMap> maps) {
         adapter.updateAll(maps);
-        if(maps.size() > 5){
+        if (maps.size() > 5) {
             tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-        }else{
+        } else {
             tabLayout.setTabMode(TabLayout.MODE_FIXED);
         }
         tabLayout.setupWithViewPager(viewPager);
